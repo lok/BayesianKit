@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		E26C132D115D7BE700CFCCF1 /* BayesianKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BayesianKit.framework */; };
+		E26C13AB115D863500CFCCF1 /* BayesianKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BayesianKit.framework */; };
+		E26C145D115E324100CFCCF1 /* BayesianKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1453115E324100CFCCF1 /* BayesianKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C145E115E324100CFCCF1 /* BKBayesianClassifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C145F115E324100CFCCF1 /* BKBayesianClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */; };
+		E26C1460115E324100CFCCF1 /* BKBayesianDataPool.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C1461115E324100CFCCF1 /* BKBayesianDataPool.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */; };
+		E26C1462115E324100CFCCF1 /* BKBayesianTokenData.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C1463115E324100CFCCF1 /* BKBayesianTokenData.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */; };
+		E26C1464115E324100CFCCF1 /* BKTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145A115E324100CFCCF1 /* BKTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C1465115E324100CFCCF1 /* BKTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C145B115E324100CFCCF1 /* BKTokenizer.m */; };
+		E26C1466115E324100CFCCF1 /* BKTokenizing.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145C115E324100CFCCF1 /* BKTokenizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C146E115E328D00CFCCF1 /* BayesianClassifierTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */; };
+		E26C1475115E329F00CFCCF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1474115E329F00CFCCF1 /* main.m */; };
+		E26C14D3115E822100CFCCF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		E26C14E2115E838F00CFCCF1 /* Bayes.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C14E1115E838F00CFCCF1 /* Bayes.m */; };
+		E26C153E115E8E8A00CFCCF1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C153D115E8E8A00CFCCF1 /* Utils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E26C132B115D7BE300CFCCF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Bayesian;
+		};
+		E2A323DF115CF01200E4D006 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Bayesian;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* BayesianKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* BayesianKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BayesianKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E26C1326115D7B9500CFCCF1 /* ClassifierTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassifierTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26C1327115D7B9500CFCCF1 /* ClassifierTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClassifierTest-Info.plist"; sourceTree = "<group>"; };
+		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
+		E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianClassifier.h; sourceTree = "<group>"; };
+		E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianClassifier.m; sourceTree = "<group>"; };
+		E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianDataPool.h; sourceTree = "<group>"; };
+		E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianDataPool.m; sourceTree = "<group>"; };
+		E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianTokenData.h; sourceTree = "<group>"; };
+		E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianTokenData.m; sourceTree = "<group>"; };
+		E26C145A115E324100CFCCF1 /* BKTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizer.h; sourceTree = "<group>"; };
+		E26C145B115E324100CFCCF1 /* BKTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenizer.m; sourceTree = "<group>"; };
+		E26C145C115E324100CFCCF1 /* BKTokenizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizing.h; sourceTree = "<group>"; };
+		E26C146C115E328C00CFCCF1 /* BayesianClassifierTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianClassifierTestCase.h; sourceTree = "<group>"; };
+		E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BayesianClassifierTestCase.m; sourceTree = "<group>"; };
+		E26C1474115E329F00CFCCF1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E26C14C5115E817B00CFCCF1 /* bayes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bayes; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26C14E0115E838F00CFCCF1 /* Bayes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bayes.h; sourceTree = "<group>"; };
+		E26C14E1115E838F00CFCCF1 /* Bayes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bayes.m; sourceTree = "<group>"; };
+		E26C153C115E8E8A00CFCCF1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		E26C153D115E8E8A00CFCCF1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C14D3115E822100CFCCF1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E26C1323115D7B9500CFCCF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C132D115D7BE700CFCCF1 /* BayesianKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2A323D9115CF00D00E4D006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C13AB115D863500CFCCF1 /* BayesianKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* BayesianKit.framework */,
+				E26C1326115D7B9500CFCCF1 /* ClassifierTest.octest */,
+				E26C14C5115E817B00CFCCF1 /* bayes */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Bayesian */ = {
+			isa = PBXGroup;
+			children = (
+				E26C1452115E324100CFCCF1 /* Framework */,
+				E26C1473115E329F00CFCCF1 /* Bayes CLI Tool */,
+				E26C146B115E328C00CFCCF1 /* Test */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = Bayesian;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E26C1327115D7B9500CFCCF1 /* ClassifierTest-Info.plist */,
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E79907B2D74100F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* BayesianKit_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E26C1452115E324100CFCCF1 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E26C1453115E324100CFCCF1 /* BayesianKit.h */,
+				E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */,
+				E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */,
+				E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */,
+				E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */,
+				E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */,
+				E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */,
+				E26C145A115E324100CFCCF1 /* BKTokenizer.h */,
+				E26C145B115E324100CFCCF1 /* BKTokenizer.m */,
+				E26C145C115E324100CFCCF1 /* BKTokenizing.h */,
+			);
+			name = Framework;
+			path = src;
+			sourceTree = "<group>";
+		};
+		E26C146B115E328C00CFCCF1 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E26C146C115E328C00CFCCF1 /* BayesianClassifierTestCase.h */,
+				E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */,
+			);
+			name = Test;
+			path = test;
+			sourceTree = "<group>";
+		};
+		E26C1473115E329F00CFCCF1 /* Bayes CLI Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E26C1474115E329F00CFCCF1 /* main.m */,
+				E26C14E0115E838F00CFCCF1 /* Bayes.h */,
+				E26C14E1115E838F00CFCCF1 /* Bayes.m */,
+				E26C153C115E8E8A00CFCCF1 /* Utils.h */,
+				E26C153D115E8E8A00CFCCF1 /* Utils.m */,
+			);
+			name = "Bayes CLI Tool";
+			path = tools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C145D115E324100CFCCF1 /* BayesianKit.h in Headers */,
+				E26C145E115E324100CFCCF1 /* BKBayesianClassifier.h in Headers */,
+				E26C1460115E324100CFCCF1 /* BKBayesianDataPool.h in Headers */,
+				E26C1462115E324100CFCCF1 /* BKBayesianTokenData.h in Headers */,
+				E26C1464115E324100CFCCF1 /* BKTokenizer.h in Headers */,
+				E26C1466115E324100CFCCF1 /* BKTokenizing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* BayesianKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "BayesianKit" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BayesianKit;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = Bayesian;
+			productReference = 8DC2EF5B0486A6940098B216 /* BayesianKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E26C1325115D7B9500CFCCF1 /* ClassifierTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E26C132A115D7B9600CFCCF1 /* Build configuration list for PBXNativeTarget "ClassifierTest" */;
+			buildPhases = (
+				E26C1321115D7B9500CFCCF1 /* Resources */,
+				E26C1322115D7B9500CFCCF1 /* Sources */,
+				E26C1323115D7B9500CFCCF1 /* Frameworks */,
+				E26C1324115D7B9500CFCCF1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E26C132C115D7BE300CFCCF1 /* PBXTargetDependency */,
+			);
+			name = ClassifierTest;
+			productName = ClassifierTest;
+			productReference = E26C1326115D7B9500CFCCF1 /* ClassifierTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		E2A323DA115CF00D00E4D006 /* Bayes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2A323E2115CF03700E4D006 /* Build configuration list for PBXNativeTarget "Bayes" */;
+			buildPhases = (
+				E2A323D8115CF00D00E4D006 /* Sources */,
+				E2A323D9115CF00D00E4D006 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2A323E0115CF01200E4D006 /* PBXTargetDependency */,
+			);
+			name = Bayes;
+			productName = Test;
+			productReference = E26C14C5115E817B00CFCCF1 /* bayes */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BayesianKit" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* Bayesian */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* BayesianKit */,
+				E2A323DA115CF00D00E4D006 /* Bayes */,
+				E26C1325115D7B9500CFCCF1 /* ClassifierTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E26C1321115D7B9500CFCCF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E26C1324115D7B9500CFCCF1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C145F115E324100CFCCF1 /* BKBayesianClassifier.m in Sources */,
+				E26C1461115E324100CFCCF1 /* BKBayesianDataPool.m in Sources */,
+				E26C1463115E324100CFCCF1 /* BKBayesianTokenData.m in Sources */,
+				E26C1465115E324100CFCCF1 /* BKTokenizer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E26C1322115D7B9500CFCCF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C146E115E328D00CFCCF1 /* BayesianClassifierTestCase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2A323D8115CF00D00E4D006 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26C1475115E329F00CFCCF1 /* main.m in Sources */,
+				E26C14E2115E838F00CFCCF1 /* Bayes.m in Sources */,
+				E26C153E115E8E8A00CFCCF1 /* Utils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E26C132C115D7BE300CFCCF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* BayesianKit */;
+			targetProxy = E26C132B115D7BE300CFCCF1 /* PBXContainerItemProxy */;
+		};
+		E2A323E0115CF01200E4D006 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* BayesianKit */;
+			targetProxy = E2A323DF115CF01200E4D006 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BayesianKit_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GENERATE_PROFILING_CODE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(TARGET_BUILD_DIR)";
+				PRODUCT_NAME = BayesianKit;
+				SDKROOT = "";
+				WRAPPER_EXTENSION = framework;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BayesianKit_Prefix.pch;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = BayesianKit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		E26C1328115D7B9500CFCCF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "ClassifierTest-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ClassifierTest;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E26C1329115D7B9500CFCCF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "ClassifierTest-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ClassifierTest;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		E2A323DD115CF00E00E4D006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0.1;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = bayes;
+				SDKROOT = "";
+			};
+			name = Debug;
+		};
+		E2A323DE115CF00E00E4D006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = "";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "BayesianKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BayesianKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E26C132A115D7B9600CFCCF1 /* Build configuration list for PBXNativeTarget "ClassifierTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E26C1328115D7B9500CFCCF1 /* Debug */,
+				E26C1329115D7B9500CFCCF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2A323E2115CF03700E4D006 /* Build configuration list for PBXNativeTarget "Bayes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2A323DD115CF00E00E4D006 /* Debug */,
+				E2A323DE115CF00E00E4D006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
