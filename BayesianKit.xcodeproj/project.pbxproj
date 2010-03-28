@@ -67,7 +67,7 @@
 		E26C145B115E324100CFCCF1 /* BKTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenizer.m; sourceTree = "<group>"; };
 		E26C145C115E324100CFCCF1 /* BKTokenizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizing.h; sourceTree = "<group>"; };
 		E26C1474115E329F00CFCCF1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E26C14C5115E817B00CFCCF1 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26C14C5115E817B00CFCCF1 /* bayes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bayes; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26C14E0115E838F00CFCCF1 /* Bayes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bayes.h; sourceTree = "<group>"; };
 		E26C14E1115E838F00CFCCF1 /* Bayes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bayes.m; sourceTree = "<group>"; };
 		E26C153C115E8E8A00CFCCF1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				8DC2EF5B0486A6940098B216 /* BayesianKit.framework */,
 				E26C1326115D7B9500CFCCF1 /* ClassifierTest.octest */,
-				E26C14C5115E817B00CFCCF1 /* Test */,
+				E26C14C5115E817B00CFCCF1 /* bayes */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			);
 			name = Bayes;
 			productName = Test;
-			productReference = E26C14C5115E817B00CFCCF1 /* Test */;
+			productReference = E26C14C5115E817B00CFCCF1 /* bayes */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -447,6 +447,7 @@
 				PRODUCT_NAME = BayesianKit;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = "";
+				SYMROOT = ../../build;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
