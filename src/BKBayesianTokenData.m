@@ -52,6 +52,13 @@
     return self;
 }
 
++ (BKBayesianTokenData*)tokenDataWithCount:(NSUInteger)aCount
+{
+    return [[[BKBayesianTokenData alloc] initWithCount:aCount] autorelease];
+}
+
+#pragma mark -
+#pragma mark NSCoding Methods
 - (id)initWithCoder:(NSCoder*)coder
 {
     self = [super init];
@@ -62,27 +69,21 @@
     return self;
 }
 
-+ (BKBayesianTokenData*)tokenDataWithCount:(NSUInteger)aCount
-{
-    return [[[BKBayesianTokenData alloc] initWithCount:aCount] autorelease];
-}
-
-- (void)setProbability:(float)aProbability
-{
-    probability = MAX(0.0001f, MIN(0.9999f, aProbability));
-}
-
-- (NSString*)description
-{
-    return [NSString stringWithFormat:@"{count: %llu, probability: %f}", count, probability];
-}
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeInteger:count forKey:@"Count"];
     [coder encodeFloat:probability forKey:@"Probability"];
 }
 
+#pragma mark -
+#pragma mark Custom Setters
+- (void)setProbability:(float)aProbability
+{
+    probability = MAX(0.0001f, MIN(0.9999f, aProbability));
+}
+
+#pragma mark -
+#pragma mark Comparison Methods
 - (NSComparisonResult)compareCount:(BKBayesianTokenData*)other
 {
     return [[NSNumber numberWithUnsignedInteger:count] compare:
@@ -93,6 +94,13 @@
 {
     return [[NSNumber numberWithFloat:probability] compare:
             [NSNumber numberWithFloat:[other probability]]];
+}
+
+#pragma mark -
+#pragma mark Printing Methods
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"{count: %llu, probability: %f}", count, probability];
 }
 
 @end

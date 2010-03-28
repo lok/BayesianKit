@@ -56,6 +56,15 @@
     return self;
 }
 
+- (id)initWithContentsOfFile:(NSString*)path
+{
+    self = [[NSKeyedUnarchiver unarchiveObjectWithFile:path] retain];
+    if (self) {
+    }
+    return self;
+}
+
+
 - (void)dealloc
 {
     [corpus release];
@@ -64,13 +73,7 @@
 }
 
 #pragma mark -
-#pragma mark Serialization Methods
-- (void)encodeWithCoder:(NSCoder*)coder
-{
-    [coder encodeObject:corpus forKey:@"Corpus"];
-    [coder encodeObject:pools forKey:@"Pools"];
-}
-
+#pragma mark NSCoding Methods
 - (id)initWithCoder:(NSCoder*)coder
 {
     self = [super init];
@@ -84,19 +87,21 @@
     return self;
 }
 
-- (id)initWithContentsOfFile:(NSString*)path
+- (void)encodeWithCoder:(NSCoder*)coder
 {
-    self = [[NSKeyedUnarchiver unarchiveObjectWithFile:path] retain];
-    if (self) {
-    }
-    return self;
+    [coder encodeObject:corpus forKey:@"Corpus"];
+    [coder encodeObject:pools forKey:@"Pools"];
 }
 
+#pragma mark -
+#pragma mark Creation Methods
 - (BKBayesianClassifier*)classifierWithContentsOfFile:(NSString*)path
 {
     return [[[BKBayesianClassifier alloc] initWithContentsOfFile:path] autorelease];
 }
 
+#pragma mark -
+#pragma mark Saving Methods
 - (BOOL)writeToFile:(NSString*)path
 {
     return [NSKeyedArchiver archiveRootObject:self toFile:path];
@@ -140,20 +145,6 @@
 
 #pragma mark -
 #pragma mark Probabilities
-- (void)stripToLevel:(NSUInteger)level
-{
-    for (NSString *token in [corpus allTokens]) {
-        NSUInteger count = [corpus countForToken:token];
-        
-        if (count < level) {
-            for (NSString *poolName in pools) {
-                BKBayesianDataPool *pool = [pools objectForKey:poolName];
-                [pool removeToken:token];
-            }
-            [corpus removeToken:token];
-        }
-    }
-}
 - (void)updatePoolsProbabilities
 {
     if (dirty) {
@@ -168,7 +159,7 @@
         BKBayesianDataPool *pool = [pools objectForKey:poolName];
         
         NSUInteger poolTotalCount = [pool tokensTotalCount];
-        NSUInteger deltaTotalCount = MAX([corpus tokensTotalCount] - poolTotalCount, 1);
+        NSUInteger deltaTotalCount = MAX([corpus tokensTotalCount] - poolTotalCount, 1u);
         
         for (NSString *token in pool) {
             NSUInteger corpusCount = [corpus countForToken:token];
@@ -194,7 +185,7 @@
 - (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities
 {
     NSUInteger length = [probabilities count];
-    float nth = 1.0f / length;
+    float nth = 1.0f / (uint32_t)length;
     float probs[length], inverseProbs[length];
     
     NSUInteger idx = 0;
@@ -206,7 +197,7 @@
     
     float inverseProbsReduced = inverseProbs[0];
     float probsReduced = probs[0];
-    for (int i = 1; i < length; i++) {
+    for (NSUInteger i = 1; i < length; i++) {
         inverseProbsReduced = inverseProbsReduced * inverseProbs[i];
         probsReduced = probsReduced * probs[i];
     }
@@ -251,7 +242,7 @@
 }
 
 #pragma mark -
-#pragma mark Classification Methods
+#pragma mark Guessing Methods
 - (NSDictionary*)guessWithFile:(NSString*)path
 {
     NSError *error = nil;
@@ -269,8 +260,13 @@
 {
     NSArray *tokens = [_tokenizer tokenizeString:string];
     [self updatePoolsProbabilities];
+    return [self guessWithTokens:tokens];
+}
+
+- (NSDictionary*)guessWithTokens:(NSArray*)tokens
+{
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[pools count]];
     
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:42];
     for (NSString *poolName in pools) {
         BKBayesianDataPool *pool = [pools objectForKey:poolName];
         NSArray *tokensProbabilities = [pool probabilitiesForTokens:tokens];
@@ -285,7 +281,24 @@
 }
 
 #pragma mark -
-#pragma mark Classifier Informations
+#pragma mark Sanitizing Methods
+- (void)stripToLevel:(NSUInteger)level
+{
+    for (NSString *token in [corpus allTokens]) {
+        NSUInteger count = [corpus countForToken:token];
+        
+        if (count < level) {
+            for (NSString *poolName in pools) {
+                BKBayesianDataPool *pool = [pools objectForKey:poolName];
+                [pool removeToken:token];
+            }
+            [corpus removeToken:token];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Printing Methods
 - (void)printInformations
 {
     [self updatePoolsProbabilities];

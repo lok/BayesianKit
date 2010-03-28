@@ -50,7 +50,6 @@
 
 - (id)initWithName:(NSString*)aName;
 
-- (void)removeToken:(NSString*)token;
 - (NSUInteger)countForToken:(NSString*)token;
 - (void)setCount:(NSUInteger)count forToken:(NSString*)token;
 - (void)addCount:(NSUInteger)count forToken:(NSString*)token;
@@ -61,8 +60,8 @@
 - (NSArray*)probabilitiesForTokens:(NSArray*)tokens;
 
 - (NSArray*)allTokens;
-- (void)printInformations;
+- (void)removeToken:(NSString*)token;
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len;
+- (void)printInformations;
 
 @end

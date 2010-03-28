@@ -52,23 +52,31 @@
 
 @property (readonly) NSMutableDictionary *pools;
 
-- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities;
+
+- (id)initWithContentsOfFile:(NSString*)path;
+
+- (BKBayesianClassifier*)classifierWithContentsOfFile:(NSString*)path;
+
+- (BOOL)writeToFile:(NSString*)path;
+
+- (BKBayesianDataPool*)poolNamed:(NSString*)poolName;
+- (void)removePoolNamed:(NSString*)poolName;
+- (void)mergePoolNamed:(NSString*)sourcePoolName withPoolNamed:(NSString*)destPoolName;
 
 - (void)updatePoolsProbabilities;
 - (void)buildProbabilityCache;
+
+- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities;
 
 - (void)trainWithFile:(NSString*)path forPoolNamed:(NSString*)poolName;
 - (void)trainWithString:(NSString*)trainString forPoolNamed:(NSString*)poolName;
 - (void)trainWithTokens:(NSArray*)tokens inPool:(BKBayesianDataPool*)pool;
 
-- (void)stripToLevel:(NSUInteger)level;
-
 - (NSDictionary*)guessWithString:(NSString*)string;
 - (NSDictionary*)guessWithFile:(NSString*)path;
+- (NSDictionary*)guessWithTokens:(NSArray*)tokens;
 
-- (id)initWithContentsOfFile:(NSString*)path;
-- (BKBayesianClassifier*)classifierWithContentsOfFile:(NSString*)path;
-- (BOOL)writeToFile:(NSString*)path;
+- (void)stripToLevel:(NSUInteger)level;
 
 - (void)printInformations;
 

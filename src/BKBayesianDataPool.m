@@ -53,6 +53,15 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [name release];
+    [_tokensCount release];
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark NSCoding Methods
 - (id)initWithCoder:(NSCoder*)coder
 {
     self = [super init];
@@ -64,13 +73,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [name release];
-    [_tokensCount release];
-    [super dealloc];
-}
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeObject:name forKey:@"Name"];
@@ -80,12 +82,6 @@
 
 #pragma mark -
 #pragma mark Token Counting Methods
-- (void)removeToken:(NSString*)token
-{
-    _tokensTotalCount -= [self countForToken:token];
-    [_tokensCount removeObjectForKey:token];
-}
-
 - (NSUInteger)countForToken:(NSString*)token
 {
     BKBayesianTokenData *data = [_tokensCount objectForKey:token];
@@ -165,12 +161,21 @@
 }
 
 #pragma mark -
-#pragma mark Misc
+#pragma mark General Token Manipulation
 - (NSArray*)allTokens
 {
     return [_tokensCount allKeys];
 }
 
+- (void)removeToken:(NSString*)token
+{
+    _tokensTotalCount -= [self countForToken:token];
+    [_tokensCount removeObjectForKey:token];
+}
+
+
+#pragma mark -
+#pragma mark Printing Methods
 - (NSString*)description
 {
     return [_tokensCount description];
@@ -192,7 +197,7 @@
 }
 
 #pragma mark -
-#pragma mark Fast Enumeration Methods
+#pragma mark NSFastEnumeration Methods
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
 {
     return [_tokensCount countByEnumeratingWithState:state objects:stackbuf count:len];

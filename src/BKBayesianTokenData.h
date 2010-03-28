@@ -47,6 +47,7 @@
 @property (readwrite, assign) float probability;
 
 - (id)initWithCount:(NSUInteger)aCount;
+
 + (BKBayesianTokenData*)tokenDataWithCount:(NSUInteger)aCount;
 
 - (NSComparisonResult)compareCount:(BKBayesianTokenData*)other;
