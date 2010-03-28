@@ -41,6 +41,7 @@
 
 @implementation BKBayesianDataPool
 
+@synthesize name;
 @synthesize _tokensTotalCount;
 
 - (id)initWithName:(NSString*)aName

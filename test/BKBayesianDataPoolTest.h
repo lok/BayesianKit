@@ -1,5 +1,5 @@
 //
-// BayesianClassifierTestCase.m
+// BKBayesianDataPoolTest.h
 // Licensed under the terms of the BSD License, as specified below.
 //
 
@@ -35,17 +35,11 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "BayesianClassifierTestCase.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import <BayesianKit/BayesianKit.h>
 
-
-@implementation BayesianClassifierTestCase
-
-- (void)testTestFramework
-{
-    NSString *string1 = @"test";
-    NSString *string2 = @"test";
-    
-    STAssertEquals(string1, string2, @"FAILURE");
+@interface BKBayesianDataPoolTest : SenTestCase {
+    BKBayesianDataPool *pool;
 }
 
 @end

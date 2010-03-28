@@ -20,11 +20,12 @@
 		E26C1464115E324100CFCCF1 /* BKTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145A115E324100CFCCF1 /* BKTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E26C1465115E324100CFCCF1 /* BKTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C145B115E324100CFCCF1 /* BKTokenizer.m */; };
 		E26C1466115E324100CFCCF1 /* BKTokenizing.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145C115E324100CFCCF1 /* BKTokenizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E26C146E115E328D00CFCCF1 /* BayesianClassifierTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */; };
 		E26C1475115E329F00CFCCF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1474115E329F00CFCCF1 /* main.m */; };
 		E26C14D3115E822100CFCCF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		E26C14E2115E838F00CFCCF1 /* Bayes.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C14E1115E838F00CFCCF1 /* Bayes.m */; };
 		E26C153E115E8E8A00CFCCF1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C153D115E8E8A00CFCCF1 /* Utils.m */; };
+		E2FAC8CF115EE0340016AD02 /* BKBayesianTokenDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FAC8CE115EE0340016AD02 /* BKBayesianTokenDataTest.m */; };
+		E2FAC91A115EE6CA0016AD02 /* BKBayesianDataPoolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FAC919115EE6CA0016AD02 /* BKBayesianDataPoolTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +66,16 @@
 		E26C145A115E324100CFCCF1 /* BKTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizer.h; sourceTree = "<group>"; };
 		E26C145B115E324100CFCCF1 /* BKTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenizer.m; sourceTree = "<group>"; };
 		E26C145C115E324100CFCCF1 /* BKTokenizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizing.h; sourceTree = "<group>"; };
-		E26C146C115E328C00CFCCF1 /* BayesianClassifierTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianClassifierTestCase.h; sourceTree = "<group>"; };
-		E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BayesianClassifierTestCase.m; sourceTree = "<group>"; };
 		E26C1474115E329F00CFCCF1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E26C14C5115E817B00CFCCF1 /* bayes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bayes; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26C14C5115E817B00CFCCF1 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26C14E0115E838F00CFCCF1 /* Bayes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bayes.h; sourceTree = "<group>"; };
 		E26C14E1115E838F00CFCCF1 /* Bayes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bayes.m; sourceTree = "<group>"; };
 		E26C153C115E8E8A00CFCCF1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		E26C153D115E8E8A00CFCCF1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		E2FAC8CD115EE0340016AD02 /* BKBayesianTokenDataTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianTokenDataTest.h; sourceTree = "<group>"; };
+		E2FAC8CE115EE0340016AD02 /* BKBayesianTokenDataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianTokenDataTest.m; sourceTree = "<group>"; };
+		E2FAC918115EE6CA0016AD02 /* BKBayesianDataPoolTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianDataPoolTest.h; sourceTree = "<group>"; };
+		E2FAC919115EE6CA0016AD02 /* BKBayesianDataPoolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianDataPoolTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +111,7 @@
 			children = (
 				8DC2EF5B0486A6940098B216 /* BayesianKit.framework */,
 				E26C1326115D7B9500CFCCF1 /* ClassifierTest.octest */,
-				E26C14C5115E817B00CFCCF1 /* bayes */,
+				E26C14C5115E817B00CFCCF1 /* Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,8 +196,10 @@
 		E26C146B115E328C00CFCCF1 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				E26C146C115E328C00CFCCF1 /* BayesianClassifierTestCase.h */,
-				E26C146D115E328C00CFCCF1 /* BayesianClassifierTestCase.m */,
+				E2FAC8CD115EE0340016AD02 /* BKBayesianTokenDataTest.h */,
+				E2FAC8CE115EE0340016AD02 /* BKBayesianTokenDataTest.m */,
+				E2FAC918115EE6CA0016AD02 /* BKBayesianDataPoolTest.h */,
+				E2FAC919115EE6CA0016AD02 /* BKBayesianDataPoolTest.m */,
 			);
 			name = Test;
 			path = test;
@@ -284,7 +289,7 @@
 			);
 			name = Bayes;
 			productName = Test;
-			productReference = E26C14C5115E817B00CFCCF1 /* bayes */;
+			productReference = E26C14C5115E817B00CFCCF1 /* Test */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -357,7 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E26C146E115E328D00CFCCF1 /* BayesianClassifierTestCase.m in Sources */,
+				E2FAC8CF115EE0340016AD02 /* BKBayesianTokenDataTest.m in Sources */,
+				E2FAC91A115EE6CA0016AD02 /* BKBayesianDataPoolTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

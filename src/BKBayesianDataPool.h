@@ -46,6 +46,7 @@
     NSMutableDictionary *_tokensCount;
 }
 
+@property (readonly) NSString *name;
 @property (readonly, getter=tokensTotalCount) NSUInteger _tokensTotalCount;
 
 - (id)initWithName:(NSString*)aName;
