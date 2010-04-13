@@ -50,12 +50,12 @@ extern const NSString *BKCorpusDataPoolName;
     
     NSInvocation *probabilitiesCombinerInvocation;
     
-    @private
-    id<BKTokenizing> _tokenizer;
+    id<BKTokenizing> tokenizer;
 }
 
 @property (readonly) NSMutableDictionary *pools;
 @property (readwrite, retain) NSInvocation *probabilitiesCombinerInvocation;
+@property (readwrite, retain) id<BKTokenizing> tokenizer;
 
 
 - (id)initWithContentsOfFile:(NSString*)path;

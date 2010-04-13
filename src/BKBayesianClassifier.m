@@ -50,6 +50,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 @synthesize pools;
 @synthesize probabilitiesCombinerInvocation;
+@synthesize tokenizer;
 
 - (id)init
 {
@@ -63,7 +64,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
                                         selector:@selector(robinsonFisherCombinerOnProbabilities:userInfo:) 
                                         userInfo:nil];
         
-        _tokenizer = [[BKTokenizer alloc] init];
+        tokenizer = [[BKTokenizer alloc] init];
     }
     return self;
 }
@@ -90,7 +91,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 {
     self = [super init];
     if (self) {
-        _tokenizer = [[BKTokenizer alloc] init];
+        tokenizer = [[BKTokenizer alloc] init];
         dirty = YES;
         
         corpus = [[coder decodeObjectForKey:@"Corpus"] retain];
@@ -287,7 +288,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 - (void)trainWithString:(NSString*)trainString forPoolNamed:(NSString*)poolName
 {
-    NSArray *tokens = [_tokenizer tokenizeString:trainString];
+    NSArray *tokens = [tokenizer tokenizeString:trainString];
     BKBayesianDataPool *pool = [self poolNamed:poolName];
     [self trainWithTokens:tokens inPool:pool];
     dirty = YES;
@@ -319,7 +320,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 - (NSDictionary*)guessWithString:(NSString*)string
 {
-    NSArray *tokens = [_tokenizer tokenizeString:string];
+    NSArray *tokens = [tokenizer tokenizeString:string];
     [self updatePoolsProbabilities];
     return [self guessWithTokens:tokens];
 }
