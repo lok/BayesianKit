@@ -48,11 +48,14 @@ extern const NSString *BKCorpusDataPoolName;
     NSMutableDictionary *pools;
     BOOL dirty;
     
+    NSInvocation *probabilitiesCombinerInvocation;
+    
     @private
     id<BKTokenizing> _tokenizer;
 }
 
 @property (readonly) NSMutableDictionary *pools;
+@property (readwrite, retain) NSInvocation *probabilitiesCombinerInvocation;
 
 
 - (id)initWithContentsOfFile:(NSString*)path;
@@ -68,8 +71,9 @@ extern const NSString *BKCorpusDataPoolName;
 - (void)updatePoolsProbabilities;
 - (void)buildProbabilityCache;
 
-- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities;
-- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities;
+- (void)setProbabilitiesCombinerWithTarget:(id)target selector:(SEL)selector userInfo:(id)userInfo;
+- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id)userInfo;
+- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id)userInfo;
 
 - (void)trainWithFile:(NSString*)path forPoolNamed:(NSString*)poolName;
 - (void)trainWithString:(NSString*)trainString forPoolNamed:(NSString*)poolName;
@@ -83,6 +87,6 @@ extern const NSString *BKCorpusDataPoolName;
 
 - (void)printInformations;
 
-- (float)chi2PWithChi:(float)chi andDegreeOfFreedom:(int)df;
+- (double)chi2PWithChi:(double)chi andDegreeOfFreedom:(int)df;
 
 @end
