@@ -87,6 +87,4 @@ extern const NSString *BKCorpusDataPoolName;
 
 - (void)printInformations;
 
-- (double)chi2PWithChi:(double)chi andDegreeOfFreedom:(int)df;
-
 @end

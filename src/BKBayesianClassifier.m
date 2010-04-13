@@ -40,6 +40,11 @@
 
 const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
+@interface BKBayesianClassifier (Private)
++ (double)chiSquare:(double)chi withDegreeOfFreedom:(NSUInteger)df;
+@end
+
+
 
 @implementation BKBayesianClassifier
 
@@ -234,27 +239,16 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
     return (1.0f + S) / 2.0f;
 }
 
-- (double)chi2PWithChi:(double)chi andDegreeOfFreedom:(int)df
-{
-    double m = chi / 2.0;
-    double sum, term;
-    
-    if ((df & 1) == 1) return -1.0;
-    
-    sum = term = exp(-m);
-    for (int i = 1; i < (df / 2); i++) {
-        term *= m/i;
-        sum += term;
-    }
-    
-    return MIN(sum, 1.0);
-}
-
 - (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id)userInfo
 {
     NSUInteger length = [probabilities count];
-    uint32_t nth = (uint32_t)length;
     double probs[length], inverseProbs[length];
+    
+    if (length > (NSUIntegerMax / 2)) { 
+        @throw [NSException exceptionWithName:@"NSUInteger overflow" 
+                                       reason:@"Too much probabilities to be combined" 
+                                     userInfo:nil];
+    }
     
     NSUInteger idx = 0;
     for (NSNumber *probability in probabilities) {
@@ -270,8 +264,8 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
         probsReduced = probsReduced * probs[i];
     }
     
-    double H = [self chi2PWithChi:(-2.0f * log(probsReduced)) andDegreeOfFreedom:(2 * nth)];
-    double S = [self chi2PWithChi:(-2.0f * log(inverseProbsReduced)) andDegreeOfFreedom:(2 * nth)];
+    double H = [BKBayesianClassifier chiSquare:(-2.0f * log(probsReduced)) withDegreeOfFreedom:(2 * length)];
+    double S = [BKBayesianClassifier chiSquare:(-2.0f * log(inverseProbsReduced)) withDegreeOfFreedom:(2 * length)];
     
     return (1.0 + H - S) / 2.0;
 }
@@ -378,5 +372,24 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
         [[pools objectForKey:poolName] printInformations];
     }
 }
+
+#pragma mark -
+#pragma mark Private Methods
++ (double)chiSquare:(double)chi withDegreeOfFreedom:(NSUInteger)df
+{
+    double m = chi / 2.0;
+    double sum, term;
+    
+    if ((df & 1) == 1) return -1.0;
+    
+    sum = term = exp(-m);
+    for (int i = 1; i < (df / 2); i++) {
+        term *= m/i;
+        sum += term;
+    }
+    
+    return MIN(sum, 1.0);
+}
+
 
 @end
