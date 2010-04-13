@@ -40,6 +40,17 @@
 
 @implementation BKTokenizer
 
+@synthesize lowerCaseTokens;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        lowerCaseTokens = YES;
+    }
+    return self;
+}
+
 - (NSArray*)tokenizeString:(NSString *)string
 {
     PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:string];
@@ -50,7 +61,11 @@
     
     while ((token = [tokenizer nextToken]) != eof) {
         if ([token tokenType] == PKTokenTypeWord || [token tokenType] == PKTokenTypeSymbol) {
-            [tokens addObject:[token stringValue]];
+            NSString *tokenString = [token stringValue];
+            if (lowerCaseTokens) {
+                tokenString = [tokenString lowercaseString];
+            }
+            [tokens addObject:tokenString];
         }
     }
     

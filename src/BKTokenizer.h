@@ -41,7 +41,9 @@
 
 
 @interface BKTokenizer : NSObject <BKTokenizing> {
+    BOOL lowerCaseTokens;
 }
+@property (readwrite) BOOL lowerCaseTokens;
 
 - (NSArray*)tokenizeString:(NSString *)string;
 

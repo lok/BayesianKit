@@ -40,6 +40,7 @@
 
 @protocol BKTokenizing
 
+@property (readwrite) BOOL lowerCaseTokens;
 - (NSArray*)tokenizeString:(NSString*)string;
 
 @end
