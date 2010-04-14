@@ -67,6 +67,7 @@
 - (void)buildProbabilityCache;
 
 - (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities;
+- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities;
 
 - (void)trainWithFile:(NSString*)path forPoolNamed:(NSString*)poolName;
 - (void)trainWithString:(NSString*)trainString forPoolNamed:(NSString*)poolName;
@@ -79,5 +80,7 @@
 - (void)stripToLevel:(NSUInteger)level;
 
 - (void)printInformations;
+
+- (float)chi2PWithChi:(float)chi andDegreeOfFreedom:(int)df;
 
 @end

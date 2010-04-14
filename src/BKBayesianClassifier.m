@@ -209,6 +209,48 @@
     return (1.0f + S) / 2.0f;
 }
 
+- (double)chi2PWithChi:(double)chi andDegreeOfFreedom:(int)df
+{
+    double m = chi / 2.0;
+    double sum, term;
+    
+    if ((df & 1) == 1) return -1.0;
+    
+    sum = term = exp(-m);
+    for (int i = 1; i < (df / 2); i++) {
+        term *= m/i;
+        sum += term;
+    }
+    
+    return MIN(sum, 1.0);
+}
+
+- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities
+{
+    NSUInteger length = [probabilities count];
+    uint32_t nth = (uint32_t)length;
+    double probs[length], inverseProbs[length];
+    
+    NSUInteger idx = 0;
+    for (NSNumber *probability in probabilities) {
+        probs[idx] = [probability floatValue];
+        inverseProbs[idx] = 1.0f - [probability floatValue];
+        idx++;
+    }
+    
+    double inverseProbsReduced = inverseProbs[0];
+    double probsReduced = probs[0];
+    for (NSUInteger i = 1; i < length; i++) {
+        inverseProbsReduced = inverseProbsReduced * inverseProbs[i];
+        probsReduced = probsReduced * probs[i];
+    }
+    
+    double H = [self chi2PWithChi:(-2.0f * log(probsReduced)) andDegreeOfFreedom:(2 * nth)];
+    double S = [self chi2PWithChi:(-2.0f * log(inverseProbsReduced)) andDegreeOfFreedom:(2 * nth)];
+    
+    return (1.0 + H - S) / 2.0;
+}
+
 #pragma mark -
 #pragma mark Trainning Methods
 - (void)trainWithFile:(NSString*)path forPoolNamed:(NSString*)poolName
@@ -272,8 +314,9 @@
         NSArray *tokensProbabilities = [pool probabilitiesForTokens:tokens];
         
         if ([tokensProbabilities count] > 0) {
-            float probabilityCombined = [self robinsonCombinerOnProbabilities:tokensProbabilities];
-            [result setObject:[NSNumber numberWithFloat:probabilityCombined] forKey:poolName];
+            float probabilityCombined = [self robinsonFisherCombinerOnProbabilities:tokensProbabilities];
+            [result setObject:[NSNumber numberWithFloat:probabilityCombined]
+                       forKey:poolName];
         }
     }
     
