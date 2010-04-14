@@ -49,7 +49,7 @@
     self = [super init];
     if (self) {
         name = [aName retain];
-        _tokensCount = [[NSMutableDictionary alloc] init];
+        _tokensData = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -57,7 +57,7 @@
 - (void)dealloc
 {
     [name release];
-    [_tokensCount release];
+    [_tokensData release];
     [super dealloc];
 }
 
@@ -69,7 +69,7 @@
     if (self) {
         name = [[coder decodeObjectForKey:@"Name"] retain];
         _tokensTotalCount = [coder decodeIntegerForKey:@"TotalCount"];
-        _tokensCount = [[coder decodeObjectForKey:@"Tokens"] retain];
+        _tokensData = [[coder decodeObjectForKey:@"TokensData"] retain];
     }
     return self;
 }
@@ -78,14 +78,14 @@
 {
     [coder encodeObject:name forKey:@"Name"];
     [coder encodeInteger:_tokensTotalCount forKey:@"TotalCount"];
-    [coder encodeObject:_tokensCount forKey:@"Tokens"];
+    [coder encodeObject:_tokensData forKey:@"TokensData"];
 }
 
 #pragma mark -
 #pragma mark Token Counting Methods
 - (NSUInteger)countForToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensCount objectForKey:token];
+    BKBayesianTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         return [data count];
     } else {
@@ -96,14 +96,14 @@
 - (void)setCount:(NSUInteger)count forToken:(NSString*)token
 {
     _tokensTotalCount -= [self countForToken:token];
-    [_tokensCount setObject:[BKBayesianTokenData tokenDataWithCount:count] 
+    [_tokensData setObject:[BKBayesianTokenData tokenDataWithCount:count] 
                      forKey:token];
     _tokensTotalCount += count;
 }
 
 - (void)addCount:(NSUInteger)count forToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensCount objectForKey:token];
+    BKBayesianTokenData *data = [_tokensData objectForKey:token];
     if (!data) {
         data = [BKBayesianTokenData tokenDataWithCount:count];
     } else {
@@ -115,13 +115,13 @@
         data = [BKBayesianTokenData tokenDataWithCount:(count + [data count])];
     }
     _tokensTotalCount+=count;
-    [_tokensCount setObject:data forKey:token];
+    [_tokensData setObject:data forKey:token];
 }
 
 - (void)increaseCountForToken:(NSString*)token
 {
     NSUInteger count = [self countForToken:token];
-    [_tokensCount setObject:[BKBayesianTokenData tokenDataWithCount:count+1]
+    [_tokensData setObject:[BKBayesianTokenData tokenDataWithCount:count+1]
                      forKey:token];
     _tokensTotalCount++;
 }
@@ -130,7 +130,7 @@
 #pragma mark Token Probabilities Methods
 - (float)probabilityForToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensCount objectForKey:token];
+    BKBayesianTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         return [data probability];
     } else {
@@ -140,7 +140,7 @@
 
 - (void)setProbability:(float)probability forToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensCount objectForKey:token];
+    BKBayesianTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         [data setProbability:probability];
     }
@@ -165,13 +165,13 @@
 #pragma mark General Token Manipulation
 - (NSArray*)allTokens
 {
-    return [_tokensCount allKeys];
+    return [_tokensData allKeys];
 }
 
 - (void)removeToken:(NSString*)token
 {
     _tokensTotalCount -= [self countForToken:token];
-    [_tokensCount removeObjectForKey:token];
+    [_tokensData removeObjectForKey:token];
 }
 
 
@@ -179,29 +179,25 @@
 #pragma mark Printing Methods
 - (NSString*)description
 {
-    return [_tokensCount description];
+    return [_tokensData description];
 }
 
 - (void)printInformations
 {
     NSLog(@"%@ Informations:", name);
-    NSLog(@"         Number of tokens: %llu", [_tokensCount count]);
+    NSLog(@"         Number of tokens: %llu", [_tokensData count]);
     NSLog(@"    Total count of tokens: %llu", _tokensTotalCount);
     
-    NSArray *keys = [_tokensCount keysSortedByValueUsingSelector:@selector(compareCount:)];
+    NSArray *keys = [_tokensData keysSortedByValueUsingSelector:@selector(compareCount:)];
     NSString *token = [keys lastObject];
     NSLog(@"       Most counted token: %@ counted %llu times", token, [self countForToken:token]);
-    
-    keys = [_tokensCount keysSortedByValueUsingSelector:@selector(compareProbability:)];
-    token = [keys lastObject];
-    NSLog(@"Highest probability token: %@ with %02i%%", token, (int)([self probabilityForToken:token]*100.));
 }
 
 #pragma mark -
 #pragma mark NSFastEnumeration Methods
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
 {
-    return [_tokensCount countByEnumeratingWithState:state objects:stackbuf count:len];
+    return [_tokensData countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
 @end

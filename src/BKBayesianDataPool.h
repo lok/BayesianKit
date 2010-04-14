@@ -43,7 +43,7 @@
     
     @private
     NSUInteger _tokensTotalCount;
-    NSMutableDictionary *_tokensCount;
+    NSMutableDictionary *_tokensData;
 }
 
 @property (readonly) NSString *name;
