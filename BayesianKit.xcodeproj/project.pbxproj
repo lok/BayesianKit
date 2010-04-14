@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E277E6A711753345009BCC70 /* Install Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E277E6AA11753363009BCC70 /* Build configuration list for PBXAggregateTarget "Install Documentation" */;
+			buildPhases = (
+				E277E6A611753345009BCC70 /* ShellScript */,
+			);
+			comments = "Generate and install Xcode documentation for BayesianKit.";
+			dependencies = (
+			);
+			name = "Install Documentation";
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		E224A1F11163A50100AD8CA6 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224A1DE1163A4DC00AD8CA6 /* ParseKit.framework */; };
@@ -332,6 +347,7 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* BayesianKit */,
 				E2A323DA115CF00D00E4D006 /* Bayes */,
+				E277E6A711753345009BCC70 /* Install Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -399,6 +415,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E277E6A611753345009BCC70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "DOXYGEN_PATH=/Applications/Doxygen.app/Contents/Resources/doxygen\n\n$DOXYGEN_PATH Doxyfile\nmake -C docs/html install\n\nosascript -e \"tell application \\\"Xcode\\\" to load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/net.ᐱ.BayesianKit.docset\\\"\"\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -453,6 +485,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -467,17 +500,17 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_PROTOTYPE_CONVERSION = NO;
-				GCC_WARN_SHADOW = NO;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -544,6 +577,27 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		E277E6A811753345009BCC70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Documentation;
+			};
+			name = Debug;
+		};
+		E277E6A911753345009BCC70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Documentation;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -639,6 +693,15 @@
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
 				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E277E6AA11753363009BCC70 /* Build configuration list for PBXAggregateTarget "Install Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E277E6A811753345009BCC70 /* Debug */,
+				E277E6A911753345009BCC70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

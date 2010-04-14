@@ -40,11 +40,22 @@
 #import <BayesianKit/BKBayesianDataPool.h>
 #import <BayesianKit/BKTokenizing.h>
 
+
+/**
+  Pool name for the corpus' pool
+ */
 extern const NSString *BKCorpusDataPoolName;
 
-
+/**
+  Naive bayesian classifier class.
+ 
+  More blabla
+ */
 @interface BKBayesianClassifier : NSObject<NSCoding> {
     BKBayesianDataPool *corpus;
+    /**
+      Data pools indexed by theirs names
+     */
     NSMutableDictionary *pools;
     BOOL dirty;
     
@@ -58,8 +69,18 @@ extern const NSString *BKCorpusDataPoolName;
 @property (readwrite, retain) id<BKTokenizing> tokenizer;
 
 
+/**
+  Initialize a bayesian classifier using a previous training saved in a file
+  @param path The path to the file containing the classifier's save
+  @returns A bayesian classifier initialized
+ */
 - (id)initWithContentsOfFile:(NSString*)path;
 
+/**
+	Create a new classifier using a previous training saved in a file
+	@param path The path to the file containing the classifier's save
+	@returns A new bayesian classifier
+ */
 - (BKBayesianClassifier*)classifierWithContentsOfFile:(NSString*)path;
 
 - (BOOL)writeToFile:(NSString*)path;
