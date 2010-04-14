@@ -40,12 +40,21 @@
 
 @implementation BKTokenizer
 
-@synthesize lower;
-
 - (NSArray*)tokenizeString:(NSString *)string
 {
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@" \n;,()[]{}"];
-    return [string componentsSeparatedByCharactersInSet:set];
+    PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:string];
+    
+    PKToken *eof = [PKToken EOFToken];
+    PKToken *token = nil;
+    NSMutableSet *tokens = [NSMutableSet set];
+    
+    while ((token = [tokenizer nextToken]) != eof) {
+        if ([token tokenType] == PKTokenTypeWord || [token tokenType] == PKTokenTypeSymbol) {
+            [tokens addObject:[token stringValue]];
+        }
+    }
+    
+    return [tokens allObjects];
 }
 
 @end

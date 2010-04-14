@@ -37,13 +37,11 @@
 
 #import <Foundation/Foundation.h>
 #import <BayesianKit/BKTokenizing.h>
+#import <ParseKit/ParseKit.h>
 
 
 @interface BKTokenizer : NSObject <BKTokenizing> {
-    BOOL lower;
 }
-
-@property (readwrite, assign) BOOL lower;
 
 - (NSArray*)tokenizeString:(NSString *)string;
 

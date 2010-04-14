@@ -40,7 +40,6 @@
 
 @protocol BKTokenizing
 
-@property (readwrite, assign) BOOL lower;
 - (NSArray*)tokenizeString:(NSString*)string;
 
 @end
