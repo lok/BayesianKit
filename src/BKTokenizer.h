@@ -37,14 +37,29 @@
 
 #import <Foundation/Foundation.h>
 #import <BayesianKit/BKTokenizing.h>
-#import <ParseKit/ParseKit.h>
 
-
+/** Simple tokenizer based on ParseKit aimed to tokenize source code. */
 @interface BKTokenizer : NSObject <BKTokenizing> {
     BOOL lowerCaseTokens;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Properties
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** If set to YES the tokenizer will return only lowercase tokens. */
 @property (readwrite) BOOL lowerCaseTokens;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Tokenizing
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Returns every tokens found in a string.
+ 
+ @param string The string to tokenize.
+ @return An array filled with every tokens.
+ */
 - (NSArray*)tokenizeString:(NSString *)string;
 
 @end

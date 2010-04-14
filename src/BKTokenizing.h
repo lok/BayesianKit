@@ -38,9 +38,30 @@
 #import <Foundation/Foundation.h>
 
 
+/** Defines the requirements for a tokenizer
+ 
+ Tokenizer are objects called to split the input string into tokens.
+ */
 @protocol BKTokenizing
 
-@property (readwrite) BOOL lowerCaseTokens;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Properties
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** If set to YES the tokenizer must convert any tokens to lowercase */
+@property (readwrite) BOOL lowerCaseTokens; 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Tokenizing
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Returns every tokens found in a string
+ 
+ @param string The string to tokenize
+ @return An array filled with every tokens
+ */
 - (NSArray*)tokenizeString:(NSString*)string;
 
 @end

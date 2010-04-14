@@ -37,20 +37,76 @@
 
 #import <Foundation/Foundation.h>
 
-
+/** Helper class for @c BKDataPool holding information on a token 
+ 
+ You should never have to handle directly an object of this type.
+ */
 @interface BKTokenData : NSObject <NSCoding> {
     NSUInteger count;
     float probability;
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Properties
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Number of occurence of a token within a pool */
 @property (readwrite, assign) NSUInteger count;
+/** Probability associated with a token in a pool */
 @property (readwrite, assign) float probability;
 
-- (id)initWithCount:(NSUInteger)aCount;
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Creating a token data
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Create a new token data and setup its @c count property.
+ 
+ @param aCount The number to set @c count with.
+ @return A new token data.
+ @see initWithCount
+ */
 + (BKTokenData*)tokenDataWithCount:(NSUInteger)aCount;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Initializing a token data
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Initialize a new token data and setup its @c count property.
+ 
+ @param aCount The number to set @c count with.
+ @return An initialized token data.
+ @see tokenDataWithCount:
+ */
+- (id)initWithCount:(NSUInteger)aCount;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Comparing token data
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Compare two token data by theirs @c count properties
+ 
+ @param other The other token data to compare with.
+ @return 
+ - NSOrderedAscending if the count of the other is greater than the receiver’s
+ - NSOrderedSame if they’re equal
+ - NSOrderedDescending if the count of the other is less than the receiver’s.
+ @see compareProbability
+ */
 - (NSComparisonResult)compareCount:(BKTokenData*)other;
+
+/** Compare two token data by theirs @c probability properties
+ 
+ @param other The other token data to compare with.
+ @return 
+ - NSOrderedAscending if the probability of the other is greater than the receiver’s
+ - NSOrderedSame if they’re equal
+ - NSOrderedDescending if the probability of the other is less than the receiver’s.
+ @see compareCount:
+ */
 - (NSComparisonResult)compareProbability:(BKTokenData*)other;
 
 @end

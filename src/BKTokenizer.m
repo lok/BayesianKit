@@ -36,6 +36,7 @@
  */
 
 #import <BayesianKit/BKTokenizer.h>
+#import <ParseKit/ParseKit.h>
 
 
 @implementation BKTokenizer

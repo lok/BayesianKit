@@ -37,7 +37,10 @@
 
 #import <Foundation/Foundation.h>
 
-
+/** Pool indexed by tokens and holding their data.
+ 
+ You should never have to handle an object of this class directly.
+ */
 @interface BKDataPool : NSObject <NSFastEnumeration, NSCoding> {
     NSString *name;
     
@@ -46,23 +49,126 @@
     NSMutableDictionary *_tokensData;
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Properties
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Name of the pool. */
 @property (readonly) NSString *name;
+
 @property (readonly, getter=tokensTotalCount) NSUInteger _tokensTotalCount;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Initialize a pool
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Initialize a data pool with a given name.
+ 
+ @param aName The pool's name.
+ @return An initialized data pool.
+ */
 - (id)initWithName:(NSString*)aName;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Handling tokens' count
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Returns the number of occurences counted for a token.
+ 
+ @param token The token to get the count property from.
+ @return The number of occurences counted for the token. 0 if no token is found.
+ */
 - (NSUInteger)countForToken:(NSString*)token;
+
+/** Sets the number of occurences counted for a token.
+ 
+ This will add the token to the pool with the given count number or will replace
+ the existing one.
+ @param count The number of occurences counted.
+ @param token The token counted.
+ @see addCount:forToken:
+ */
 - (void)setCount:(NSUInteger)count forToken:(NSString*)token;
+
+/** Adds to the number of occurences counted for a token.
+ 
+ This will add the token to the pool with the given count number or will be 
+ added to the existing one.
+ @param count The number of occurences counted to ass.
+ @param token The token counted.
+ @exception NSException if the count property will overflow.
+ @see setCount:forToken:
+ */
 - (void)addCount:(NSUInteger)count forToken:(NSString*)token;
+
+/** Increase the number of occurences counted for a token by 1.
+ 
+ Act like @c addCount:forToken:() with the count argument set to 1.
+ @param token The token counted.
+ @see addCount:forToken:
+ @see setCount:forToken:
+ */
 - (void)increaseCountForToken:(NSString*)token;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Handling tokens' probability
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Returns the probability associated with a token.
+ 
+ @param token The token to get the probability property from.
+ @return The probability associated with the token. 0 if no token is found.
+ @see probabilitiesForTokens:
+ */
 - (float)probabilityForToken:(NSString*)token;
-- (void)setProbability:(float)probability forToken:(NSString*)token;
+
+/** Returns an array containing the probabilities for a group of tokens
+ 
+ Only the probabilities of tokens existing within the pool are returned.
+ The others are simply ignored. So the array returned may be smaller than the tokens' one.
+ @param tokens An array containing tokens.
+ @return An array of NSNumber holding tokens probabilities.
+ @see probabilityForToken:
+ */
 - (NSArray*)probabilitiesForTokens:(NSArray*)tokens;
 
-- (NSArray*)allTokens;
+/** Sets the probability associated with a token.
+ 
+ Unlike @c setCount:forToken: This will @b not add the token to the pool.
+ @param count The probability for the token.
+ @param token The token associated.
+ */
+- (void)setProbability:(float)probability forToken:(NSString*)token;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Remove tokens
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Remove a token from the pool and release any associated data.
+ 
+ @param token The token to remove.
+ */
 - (void)removeToken:(NSString*)token;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Accessing tokens
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Returns every token of the pool. */
+- (NSArray*)allTokens;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// @name Print statistics
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/** Print some basics statistics on the receiver */
 - (void)printInformations;
 
 @end

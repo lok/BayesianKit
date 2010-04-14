@@ -42,6 +42,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
 
 @interface BKClassifier (Private)
 + (float)chiSquare:(float)chi withDegreeOfFreedom:(NSUInteger)df;
+- (void)buildProbabilityCache;
 @end
 
 
@@ -61,7 +62,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
         dirty = YES;
         
         [self setProbabilitiesCombinerWithTarget:self 
-                                        selector:@selector(robinsonFisherCombinerOnProbabilities:userInfo:) 
+                                        selector:@selector(robinsonFisherCombinerOn:userInfo:) 
                                         userInfo:nil];
         
         tokenizer = [[BKTokenizer alloc] init];
@@ -98,7 +99,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
         pools = [[coder decodeObjectForKey:@"Pools"] retain];
         
         [self setProbabilitiesCombinerWithTarget:self 
-                                        selector:@selector(robinsonFisherCombinerOnProbabilities:userInfo:) 
+                                        selector:@selector(robinsonFisherCombinerOn:userInfo:) 
                                         userInfo:nil];
     }
     return self;
@@ -145,21 +146,6 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
     dirty = YES;
 }
 
-- (void)mergePoolNamed:(NSString*)sourcePoolName withPoolNamed:(NSString*)destPoolName
-{
-    BKDataPool *sourcePool = [pools objectForKey:sourcePoolName];
-    BKDataPool *destPool   = [pools objectForKey:destPoolName];
-    
-    if (!sourcePool || !destPool) return;
-    
-    for (NSString *token in sourcePool) {
-        NSUInteger count = [sourcePool countForToken:token];
-        [destPool addCount:count forToken:token];
-    }
-    
-    dirty = YES;
-}
-
 #pragma mark -
 #pragma mark Probabilities
 - (void)updatePoolsProbabilities
@@ -201,7 +187,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
 #pragma mark Combiners
 - (void)setProbabilitiesCombinerWithTarget:(id)target selector:(SEL)selector userInfo:(id)userInfo
 {
-    SEL signatureSelector = @selector(robinsonCombinerOnProbabilities:userInfo:);
+    SEL signatureSelector = @selector(robinsonCombinerOn:userInfo:);
     NSMethodSignature *signature = [BKClassifier instanceMethodSignatureForSelector:signatureSelector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
@@ -213,7 +199,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
     [self setProbabilitiesCombinerInvocation:invocation];
 }
 
-- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id) __unused userInfo
+- (float)robinsonCombinerOn:(NSArray*)probabilities userInfo:(id) __unused userInfo
 {
     NSUInteger length = [probabilities count];
     float nth = 1.0f / (uint32_t)length;
@@ -240,7 +226,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
     return (1.0f + S) / 2.0f;
 }
 
-- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id) __unused userInfo
+- (float)robinsonFisherCombinerOn:(NSArray*)probabilities userInfo:(id) __unused userInfo
 {
     NSUInteger length = [probabilities count];
     float probs[length], inverseProbs[length];
