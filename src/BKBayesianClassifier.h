@@ -40,6 +40,8 @@
 #import <BayesianKit/BKBayesianDataPool.h>
 #import <BayesianKit/BKTokenizing.h>
 
+extern const NSString *BKCorpusDataPoolName;
+
 
 @interface BKBayesianClassifier : NSObject<NSCoding> {
     BKBayesianDataPool *corpus;

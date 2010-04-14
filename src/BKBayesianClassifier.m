@@ -38,6 +38,8 @@
 #import <BayesianKit/BKBayesianClassifier.h>
 #import <BayesianKit/BKTokenizer.h>
 
+const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
+
 
 @implementation BKBayesianClassifier
 
@@ -47,7 +49,7 @@
 {
     self = [super init];
     if (self) {
-        corpus = [[BKBayesianDataPool alloc] initWithName:@"__Corpus__"];
+        corpus = [[BKBayesianDataPool alloc] initWithName:BKCorpusDataPoolName];
         pools = [[NSMutableDictionary alloc] init];
         dirty = YES;
         
