@@ -1,5 +1,5 @@
 //
-// BKBayesianTokenData.h
+// BKTokenData.m
 // Licensed under the terms of the BSD License, as specified below.
 //
 
@@ -35,22 +35,73 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import <BayesianKit/BKTokenData.h>
 
 
-@interface BKBayesianTokenData : NSObject <NSCoding> {
-    NSUInteger count;
-    float probability;
+@implementation BKTokenData
+
+@synthesize count;
+@synthesize probability;
+
+- (id)initWithCount:(NSUInteger)aCount
+{
+    self = [super init];
+    if (self) {
+        [self setCount:aCount];
+    }
+    return self;
 }
 
-@property (readwrite, assign) NSUInteger count;
-@property (readwrite, assign) float probability;
++ (BKTokenData*)tokenDataWithCount:(NSUInteger)aCount
+{
+    return [[[BKTokenData alloc] initWithCount:aCount] autorelease];
+}
 
-- (id)initWithCount:(NSUInteger)aCount;
+#pragma mark -
+#pragma mark NSCoding Methods
+- (id)initWithCoder:(NSCoder*)coder
+{
+    self = [super init];
+    if (self) {
+        count = [coder decodeIntegerForKey:@"Count"];
+        probability = [coder decodeFloatForKey:@"Probability"];
+    }
+    return self;
+}
 
-+ (BKBayesianTokenData*)tokenDataWithCount:(NSUInteger)aCount;
+- (void)encodeWithCoder:(NSCoder*)coder
+{
+    [coder encodeInteger:count forKey:@"Count"];
+    [coder encodeFloat:probability forKey:@"Probability"];
+}
 
-- (NSComparisonResult)compareCount:(BKBayesianTokenData*)other;
-- (NSComparisonResult)compareProbability:(BKBayesianTokenData*)other;
+#pragma mark -
+#pragma mark Custom Setters
+- (void)setProbability:(float)aProbability
+{
+    probability = MIN(0.9999f, aProbability);
+    probability = MAX(0.0001f, probability);
+}
+
+#pragma mark -
+#pragma mark Comparison Methods
+- (NSComparisonResult)compareCount:(BKTokenData*)other
+{
+    return [[NSNumber numberWithUnsignedInteger:count] compare:
+            [NSNumber numberWithUnsignedInteger:[other count]]];
+}
+
+- (NSComparisonResult)compareProbability:(BKTokenData*)other
+{
+    return [[NSNumber numberWithFloat:probability] compare:
+            [NSNumber numberWithFloat:[other probability]]];
+}
+
+#pragma mark -
+#pragma mark Printing Methods
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"{count: %llu, probability: %f}", count, probability];
+}
 
 @end

@@ -145,7 +145,7 @@
 {
     if (filepath) {
         @try {
-            classifier = [[BKBayesianClassifier alloc] initWithContentsOfFile:filepath];
+            classifier = [[BKClassifier alloc] initWithContentsOfFile:filepath];
         }
         @catch (NSException *e) {
             PrintOut(@"%@ - Is not a valid classifier archive", filepath);
@@ -154,7 +154,7 @@
     }
     
     if (classifier == nil) {
-        classifier = [[BKBayesianClassifier alloc] init];
+        classifier = [[BKClassifier alloc] init];
     }
 }
 

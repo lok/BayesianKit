@@ -26,12 +26,12 @@
 		E224A1F11163A50100AD8CA6 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224A1DE1163A4DC00AD8CA6 /* ParseKit.framework */; };
 		E26C13AB115D863500CFCCF1 /* BayesianKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BayesianKit.framework */; };
 		E26C145D115E324100CFCCF1 /* BayesianKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1453115E324100CFCCF1 /* BayesianKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E26C145E115E324100CFCCF1 /* BKBayesianClassifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E26C145F115E324100CFCCF1 /* BKBayesianClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */; };
-		E26C1460115E324100CFCCF1 /* BKBayesianDataPool.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E26C1461115E324100CFCCF1 /* BKBayesianDataPool.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */; };
-		E26C1462115E324100CFCCF1 /* BKBayesianTokenData.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E26C1463115E324100CFCCF1 /* BKBayesianTokenData.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */; };
+		E26C145E115E324100CFCCF1 /* BKClassifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1454115E324100CFCCF1 /* BKClassifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C145F115E324100CFCCF1 /* BKClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1455115E324100CFCCF1 /* BKClassifier.m */; };
+		E26C1460115E324100CFCCF1 /* BKDataPool.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1456115E324100CFCCF1 /* BKDataPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C1461115E324100CFCCF1 /* BKDataPool.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1457115E324100CFCCF1 /* BKDataPool.m */; };
+		E26C1462115E324100CFCCF1 /* BKTokenData.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1458115E324100CFCCF1 /* BKTokenData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26C1463115E324100CFCCF1 /* BKTokenData.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C1459115E324100CFCCF1 /* BKTokenData.m */; };
 		E26C1464115E324100CFCCF1 /* BKTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145A115E324100CFCCF1 /* BKTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E26C1465115E324100CFCCF1 /* BKTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C145B115E324100CFCCF1 /* BKTokenizer.m */; };
 		E26C1466115E324100CFCCF1 /* BKTokenizing.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C145C115E324100CFCCF1 /* BKTokenizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -119,12 +119,12 @@
 		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = "../todparsekit-read-only/ParseKit.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		E26C1327115D7B9500CFCCF1 /* ClassifierTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClassifierTest-Info.plist"; sourceTree = "<group>"; };
 		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
-		E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianClassifier.h; sourceTree = "<group>"; };
-		E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianClassifier.m; sourceTree = "<group>"; };
-		E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianDataPool.h; sourceTree = "<group>"; };
-		E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianDataPool.m; sourceTree = "<group>"; };
-		E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBayesianTokenData.h; sourceTree = "<group>"; };
-		E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBayesianTokenData.m; sourceTree = "<group>"; };
+		E26C1454115E324100CFCCF1 /* BKClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClassifier.h; sourceTree = "<group>"; };
+		E26C1455115E324100CFCCF1 /* BKClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClassifier.m; sourceTree = "<group>"; };
+		E26C1456115E324100CFCCF1 /* BKDataPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKDataPool.h; sourceTree = "<group>"; };
+		E26C1457115E324100CFCCF1 /* BKDataPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKDataPool.m; sourceTree = "<group>"; };
+		E26C1458115E324100CFCCF1 /* BKTokenData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenData.h; sourceTree = "<group>"; };
+		E26C1459115E324100CFCCF1 /* BKTokenData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenData.m; sourceTree = "<group>"; };
 		E26C145A115E324100CFCCF1 /* BKTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizer.h; sourceTree = "<group>"; };
 		E26C145B115E324100CFCCF1 /* BKTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenizer.m; sourceTree = "<group>"; };
 		E26C145C115E324100CFCCF1 /* BKTokenizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenizing.h; sourceTree = "<group>"; };
@@ -243,12 +243,12 @@
 			isa = PBXGroup;
 			children = (
 				E26C1453115E324100CFCCF1 /* BayesianKit.h */,
-				E26C1454115E324100CFCCF1 /* BKBayesianClassifier.h */,
-				E26C1455115E324100CFCCF1 /* BKBayesianClassifier.m */,
-				E26C1456115E324100CFCCF1 /* BKBayesianDataPool.h */,
-				E26C1457115E324100CFCCF1 /* BKBayesianDataPool.m */,
-				E26C1458115E324100CFCCF1 /* BKBayesianTokenData.h */,
-				E26C1459115E324100CFCCF1 /* BKBayesianTokenData.m */,
+				E26C1454115E324100CFCCF1 /* BKClassifier.h */,
+				E26C1455115E324100CFCCF1 /* BKClassifier.m */,
+				E26C1456115E324100CFCCF1 /* BKDataPool.h */,
+				E26C1457115E324100CFCCF1 /* BKDataPool.m */,
+				E26C1458115E324100CFCCF1 /* BKTokenData.h */,
+				E26C1459115E324100CFCCF1 /* BKTokenData.m */,
 				E26C145A115E324100CFCCF1 /* BKTokenizer.h */,
 				E26C145B115E324100CFCCF1 /* BKTokenizer.m */,
 				E26C145C115E324100CFCCF1 /* BKTokenizing.h */,
@@ -278,9 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E26C145D115E324100CFCCF1 /* BayesianKit.h in Headers */,
-				E26C145E115E324100CFCCF1 /* BKBayesianClassifier.h in Headers */,
-				E26C1460115E324100CFCCF1 /* BKBayesianDataPool.h in Headers */,
-				E26C1462115E324100CFCCF1 /* BKBayesianTokenData.h in Headers */,
+				E26C145E115E324100CFCCF1 /* BKClassifier.h in Headers */,
+				E26C1460115E324100CFCCF1 /* BKDataPool.h in Headers */,
+				E26C1462115E324100CFCCF1 /* BKTokenData.h in Headers */,
 				E26C1464115E324100CFCCF1 /* BKTokenizer.h in Headers */,
 				E26C1466115E324100CFCCF1 /* BKTokenizing.h in Headers */,
 			);
@@ -436,9 +436,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E26C145F115E324100CFCCF1 /* BKBayesianClassifier.m in Sources */,
-				E26C1461115E324100CFCCF1 /* BKBayesianDataPool.m in Sources */,
-				E26C1463115E324100CFCCF1 /* BKBayesianTokenData.m in Sources */,
+				E26C145F115E324100CFCCF1 /* BKClassifier.m in Sources */,
+				E26C1461115E324100CFCCF1 /* BKDataPool.m in Sources */,
+				E26C1463115E324100CFCCF1 /* BKTokenData.m in Sources */,
 				E26C1465115E324100CFCCF1 /* BKTokenizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +514,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;

@@ -35,18 +35,18 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <BayesianKit/BKBayesianClassifier.h>
+#import <BayesianKit/BKClassifier.h>
 #import <BayesianKit/BKTokenizer.h>
 
-const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
+NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
 
-@interface BKBayesianClassifier (Private)
-+ (double)chiSquare:(double)chi withDegreeOfFreedom:(NSUInteger)df;
+@interface BKClassifier (Private)
++ (float)chiSquare:(float)chi withDegreeOfFreedom:(NSUInteger)df;
 @end
 
 
 
-@implementation BKBayesianClassifier
+@implementation BKClassifier
 
 @synthesize pools;
 @synthesize probabilitiesCombinerInvocation;
@@ -56,7 +56,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 {
     self = [super init];
     if (self) {
-        corpus = [[BKBayesianDataPool alloc] initWithName:BKCorpusDataPoolName];
+        corpus = [[BKDataPool alloc] initWithName:BKCorpusDataPoolName];
         pools = [[NSMutableDictionary alloc] init];
         dirty = YES;
         
@@ -112,9 +112,9 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 #pragma mark -
 #pragma mark Creation Methods
-- (BKBayesianClassifier*)classifierWithContentsOfFile:(NSString*)path
+- (BKClassifier*)classifierWithContentsOfFile:(NSString*)path
 {
-    return [[[BKBayesianClassifier alloc] initWithContentsOfFile:path] autorelease];
+    return [[[BKClassifier alloc] initWithContentsOfFile:path] autorelease];
 }
 
 #pragma mark -
@@ -126,13 +126,13 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 #pragma mark -
 #pragma mark Pool Management
-- (BKBayesianDataPool*)poolNamed:(NSString*)poolName
+- (BKDataPool*)poolNamed:(NSString*)poolName
 {
-    BKBayesianDataPool *pool;
+    BKDataPool *pool;
     pool = [pools objectForKey:poolName];
     
     if (pool == nil) {
-        pool = [[[BKBayesianDataPool alloc] initWithName:poolName] autorelease];
+        pool = [[[BKDataPool alloc] initWithName:poolName] autorelease];
         [pools setObject:pool forKey:poolName];
         dirty = YES;
     }
@@ -147,8 +147,8 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 - (void)mergePoolNamed:(NSString*)sourcePoolName withPoolNamed:(NSString*)destPoolName
 {
-    BKBayesianDataPool *sourcePool = [pools objectForKey:sourcePoolName];
-    BKBayesianDataPool *destPool   = [pools objectForKey:destPoolName];
+    BKDataPool *sourcePool = [pools objectForKey:sourcePoolName];
+    BKDataPool *destPool   = [pools objectForKey:destPoolName];
     
     if (!sourcePool || !destPool) return;
     
@@ -173,7 +173,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 - (void)buildProbabilityCache
 {
     for (NSString *poolName in pools) {
-        BKBayesianDataPool *pool = [pools objectForKey:poolName];
+        BKDataPool *pool = [pools objectForKey:poolName];
         
         NSUInteger poolTotalCount = [pool tokensTotalCount];
         NSUInteger deltaTotalCount = MAX([corpus tokensTotalCount] - poolTotalCount, 1u);
@@ -202,7 +202,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 - (void)setProbabilitiesCombinerWithTarget:(id)target selector:(SEL)selector userInfo:(id)userInfo
 {
     SEL signatureSelector = @selector(robinsonCombinerOnProbabilities:userInfo:);
-    NSMethodSignature *signature = [BKBayesianClassifier instanceMethodSignatureForSelector:signatureSelector];
+    NSMethodSignature *signature = [BKClassifier instanceMethodSignatureForSelector:signatureSelector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
     [invocation setTarget:target];
@@ -213,7 +213,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
     [self setProbabilitiesCombinerInvocation:invocation];
 }
 
-- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id)userInfo
+- (float)robinsonCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id) __unused userInfo
 {
     NSUInteger length = [probabilities count];
     float nth = 1.0f / (uint32_t)length;
@@ -240,10 +240,10 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
     return (1.0f + S) / 2.0f;
 }
 
-- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id)userInfo
+- (float)robinsonFisherCombinerOnProbabilities:(NSArray*)probabilities userInfo:(id) __unused userInfo
 {
     NSUInteger length = [probabilities count];
-    double probs[length], inverseProbs[length];
+    float probs[length], inverseProbs[length];
     
     if (length > (NSUIntegerMax / 2)) { 
         @throw [NSException exceptionWithName:@"NSUInteger overflow" 
@@ -253,22 +253,22 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
     
     NSUInteger idx = 0;
     for (NSNumber *probability in probabilities) {
-        probs[idx] = [probability doubleValue];
-        inverseProbs[idx] = (1.0 - [probability doubleValue]);
+        probs[idx] = [probability floatValue];
+        inverseProbs[idx] = (1.0f - [probability floatValue]);
         idx++;
     }
     
-    double inverseProbsReduced = inverseProbs[0];
-    double probsReduced = probs[0];
+    float inverseProbsReduced = inverseProbs[0];
+    float probsReduced = probs[0];
     for (NSUInteger i = 1; i < length; i++) {
         inverseProbsReduced = inverseProbsReduced * inverseProbs[i];
         probsReduced = probsReduced * probs[i];
     }
     
-    double H = [BKBayesianClassifier chiSquare:(-2.0f * log(probsReduced)) withDegreeOfFreedom:(2 * length)];
-    double S = [BKBayesianClassifier chiSquare:(-2.0f * log(inverseProbsReduced)) withDegreeOfFreedom:(2 * length)];
+    float H = [BKClassifier chiSquare:(-2.0f * logf(probsReduced)) withDegreeOfFreedom:(2 * length)];
+    float S = [BKClassifier chiSquare:(-2.0f * logf(inverseProbsReduced)) withDegreeOfFreedom:(2 * length)];
     
-    return (1.0 + H - S) / 2.0;
+    return (1.0f + H - S) / 2.0f;
 }
 
 #pragma mark -
@@ -289,12 +289,12 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 - (void)trainWithString:(NSString*)trainString forPoolNamed:(NSString*)poolName
 {
     NSArray *tokens = [tokenizer tokenizeString:trainString];
-    BKBayesianDataPool *pool = [self poolNamed:poolName];
+    BKDataPool *pool = [self poolNamed:poolName];
     [self trainWithTokens:tokens inPool:pool];
     dirty = YES;
 }
 
-- (void)trainWithTokens:(NSArray*)tokens inPool:(BKBayesianDataPool*)pool
+- (void)trainWithTokens:(NSArray*)tokens inPool:(BKDataPool*)pool
 {
     for (NSString *token in tokens) {
         if (!token || [token isEqual:@""]) continue;
@@ -330,7 +330,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[pools count]];
     
     for (NSString *poolName in pools) {
-        BKBayesianDataPool *pool = [pools objectForKey:poolName];
+        BKDataPool *pool = [pools objectForKey:poolName];
         NSArray *tokensProbabilities = [pool probabilitiesForTokens:tokens];
         
         if ([tokensProbabilities count] > 0) {
@@ -355,7 +355,7 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
         
         if (count < level) {
             for (NSString *poolName in pools) {
-                BKBayesianDataPool *pool = [pools objectForKey:poolName];
+                BKDataPool *pool = [pools objectForKey:poolName];
                 [pool removeToken:token];
             }
             [corpus removeToken:token];
@@ -376,20 +376,20 @@ const NSString *BKCorpusDataPoolName = @"__BKCorpus__";
 
 #pragma mark -
 #pragma mark Private Methods
-+ (double)chiSquare:(double)chi withDegreeOfFreedom:(NSUInteger)df
++ (float)chiSquare:(float)chi withDegreeOfFreedom:(NSUInteger)df
 {
-    double m = chi / 2.0;
-    double sum, term;
+    float m = chi / 2.0f;
+    float sum, term;
     
-    if ((df & 1) == 1) return -1.0;
+    if ((df & 1) == 1) return -1.0f;
     
-    sum = term = exp(-m);
-    for (int i = 1; i < (df / 2); i++) {
-        term *= m/i;
+    sum = term = expf(-m);
+    for (NSUInteger i = 1; i < (df / 2); i++) {
+        term *= m/(int32_t)i;
         sum += term;
     }
     
-    return MIN(sum, 1.0);
+    return MIN(sum, 1.0f);
 }
 
 

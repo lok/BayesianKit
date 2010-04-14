@@ -35,8 +35,8 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <BayesianKit/BKBayesianClassifier.h>
-#import <BayesianKit/BKBayesianDataPool.h>
-#import <BayesianKit/BKBayesianTokenData.h>
+#import <BayesianKit/BKClassifier.h>
+#import <BayesianKit/BKDataPool.h>
+#import <BayesianKit/BKTokenData.h>
 #import <BayesianKit/BKTokenizer.h>
 #import <BayesianKit/BKTokenizing.h>

@@ -1,5 +1,5 @@
 //
-// BKBayesianDataPool.m
+// BKDataPool.m
 // Licensed under the terms of the BSD License, as specified below.
 //
 
@@ -35,11 +35,11 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <BayesianKit/BKBayesianDataPool.h>
-#import <BayesianKit/BKBayesianTokenData.h>
+#import <BayesianKit/BKDataPool.h>
+#import <BayesianKit/BKTokenData.h>
 
 
-@implementation BKBayesianDataPool
+@implementation BKDataPool
 
 @synthesize name;
 @synthesize _tokensTotalCount;
@@ -85,7 +85,7 @@
 #pragma mark Token Counting Methods
 - (NSUInteger)countForToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensData objectForKey:token];
+    BKTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         return [data count];
     } else {
@@ -96,23 +96,23 @@
 - (void)setCount:(NSUInteger)count forToken:(NSString*)token
 {
     _tokensTotalCount -= [self countForToken:token];
-    [_tokensData setObject:[BKBayesianTokenData tokenDataWithCount:count] 
+    [_tokensData setObject:[BKTokenData tokenDataWithCount:count] 
                      forKey:token];
     _tokensTotalCount += count;
 }
 
 - (void)addCount:(NSUInteger)count forToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensData objectForKey:token];
+    BKTokenData *data = [_tokensData objectForKey:token];
     if (!data) {
-        data = [BKBayesianTokenData tokenDataWithCount:count];
+        data = [BKTokenData tokenDataWithCount:count];
     } else {
         if ((NSUIntegerMax - count) < [data count]) {
             @throw [NSException exceptionWithName:@"NSUInteger overflow" 
                                            reason:@"If token count is too high" 
                                          userInfo:nil];
         }
-        data = [BKBayesianTokenData tokenDataWithCount:(count + [data count])];
+        data = [BKTokenData tokenDataWithCount:(count + [data count])];
     }
     _tokensTotalCount+=count;
     [_tokensData setObject:data forKey:token];
@@ -121,7 +121,7 @@
 - (void)increaseCountForToken:(NSString*)token
 {
     NSUInteger count = [self countForToken:token];
-    [_tokensData setObject:[BKBayesianTokenData tokenDataWithCount:count+1]
+    [_tokensData setObject:[BKTokenData tokenDataWithCount:count+1]
                      forKey:token];
     _tokensTotalCount++;
 }
@@ -130,7 +130,7 @@
 #pragma mark Token Probabilities Methods
 - (float)probabilityForToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensData objectForKey:token];
+    BKTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         return [data probability];
     } else {
@@ -140,7 +140,7 @@
 
 - (void)setProbability:(float)probability forToken:(NSString*)token
 {
-    BKBayesianTokenData *data = [_tokensData objectForKey:token];
+    BKTokenData *data = [_tokensData objectForKey:token];
     if (data) {
         [data setProbability:probability];
     }

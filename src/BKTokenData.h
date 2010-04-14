@@ -1,5 +1,5 @@
 //
-// BKBayesianDataPool.h
+// BKTokenData.h
 // Licensed under the terms of the BSD License, as specified below.
 //
 
@@ -38,31 +38,19 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BKBayesianDataPool : NSObject <NSFastEnumeration, NSCoding> {
-    NSString *name;
-    
-    @private
-    NSUInteger _tokensTotalCount;
-    NSMutableDictionary *_tokensData;
+@interface BKTokenData : NSObject <NSCoding> {
+    NSUInteger count;
+    float probability;
 }
 
-@property (readonly) NSString *name;
-@property (readonly, getter=tokensTotalCount) NSUInteger _tokensTotalCount;
+@property (readwrite, assign) NSUInteger count;
+@property (readwrite, assign) float probability;
 
-- (id)initWithName:(NSString*)aName;
+- (id)initWithCount:(NSUInteger)aCount;
 
-- (NSUInteger)countForToken:(NSString*)token;
-- (void)setCount:(NSUInteger)count forToken:(NSString*)token;
-- (void)addCount:(NSUInteger)count forToken:(NSString*)token;
-- (void)increaseCountForToken:(NSString*)token;
++ (BKTokenData*)tokenDataWithCount:(NSUInteger)aCount;
 
-- (float)probabilityForToken:(NSString*)token;
-- (void)setProbability:(float)probability forToken:(NSString*)token;
-- (NSArray*)probabilitiesForTokens:(NSArray*)tokens;
-
-- (NSArray*)allTokens;
-- (void)removeToken:(NSString*)token;
-
-- (void)printInformations;
+- (NSComparisonResult)compareCount:(BKTokenData*)other;
+- (NSComparisonResult)compareProbability:(BKTokenData*)other;
 
 @end

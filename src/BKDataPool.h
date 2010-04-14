@@ -1,5 +1,5 @@
 //
-// Bayes.h
+// BKDataPool.h
 // Licensed under the terms of the BSD License, as specified below.
 //
 
@@ -36,29 +36,33 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <BayesianKit/BayesianKit.h>
 
-@interface Bayes : NSObject {
-    NSString *filepath;
-    BKClassifier *classifier;
-    BOOL saveWhenExiting;
+
+@interface BKDataPool : NSObject <NSFastEnumeration, NSCoding> {
+    NSString *name;
+    
+    @private
+    NSUInteger _tokensTotalCount;
+    NSMutableDictionary *_tokensData;
 }
 
-@property (readwrite, retain) NSString *filepath;
-@property (readwrite, assign) BOOL saveWhenExiting;
+@property (readonly) NSString *name;
+@property (readonly, getter=tokensTotalCount) NSUInteger _tokensTotalCount;
 
-- (void)processArguments:(NSArray*)arguments;
-- (NSArray*)extractValuesInArray:(NSArray*)arguments fromIndex:(NSUInteger)idx;
-- (void)prepareClassifier;
+- (id)initWithName:(NSString*)aName;
 
-- (void)showVersion;
-- (void)showHelp;
-- (void)showInvalidNumberOfArgumentsFor:(NSString*)arg;
-- (void)showDump;
-- (void)terminateWell:(BOOL)well;
-- (void)loadFile:(NSString*)path;
-- (void)guessOn:(NSArray*)paths;
-- (void)trainOn:(NSArray*)paths withPoolNamed:(NSString*)poolName;
-- (void)stripToLevel:(NSUInteger)level;
+- (NSUInteger)countForToken:(NSString*)token;
+- (void)setCount:(NSUInteger)count forToken:(NSString*)token;
+- (void)addCount:(NSUInteger)count forToken:(NSString*)token;
+- (void)increaseCountForToken:(NSString*)token;
+
+- (float)probabilityForToken:(NSString*)token;
+- (void)setProbability:(float)probability forToken:(NSString*)token;
+- (NSArray*)probabilitiesForTokens:(NSArray*)tokens;
+
+- (NSArray*)allTokens;
+- (void)removeToken:(NSString*)token;
+
+- (void)printInformations;
 
 @end
