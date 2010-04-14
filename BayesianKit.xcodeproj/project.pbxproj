@@ -117,7 +117,6 @@
 		8DC2EF5B0486A6940098B216 /* BayesianKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BayesianKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = "../todparsekit-read-only/ParseKit.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		E26C1327115D7B9500CFCCF1 /* ClassifierTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClassifierTest-Info.plist"; sourceTree = "<group>"; };
 		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
 		E26C1454115E324100CFCCF1 /* BKClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClassifier.h; sourceTree = "<group>"; };
 		E26C1455115E324100CFCCF1 /* BKClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClassifier.m; sourceTree = "<group>"; };
@@ -134,6 +133,12 @@
 		E26C14E1115E838F00CFCCF1 /* Bayes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bayes.m; sourceTree = "<group>"; };
 		E26C153C115E8E8A00CFCCF1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		E26C153D115E8E8A00CFCCF1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		E277E77B1175F606009BCC70 /* DocSet-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DocSet-Info.plist"; sourceTree = "<group>"; };
+		E277E77C1175F606009BCC70 /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		E277E7B31175FD5B009BCC70 /* appledoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = appledoc; sourceTree = "<group>"; };
+		E277E7B41175FD5B009BCC70 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
+		E277E7B61175FD5B009BCC70 /* object.xslt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = object.xslt; sourceTree = "<group>"; };
+		E277E7B71175FD5B009BCC70 /* screen.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = screen.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +180,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				E277E7B11175FD5B009BCC70 /* External */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = Bayesian;
@@ -192,7 +198,8 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E26C1327115D7B9500CFCCF1 /* ClassifierTest-Info.plist */,
+				E277E77C1175F606009BCC70 /* Doxyfile */,
+				E277E77B1175F606009BCC70 /* DocSet-Info.plist */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
@@ -268,6 +275,34 @@
 			);
 			name = "Bayes CLI Tool";
 			path = tools;
+			sourceTree = "<group>";
+		};
+		E277E7B11175FD5B009BCC70 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E277E7B21175FD5B009BCC70 /* appledoc */,
+			);
+			name = External;
+			path = external;
+			sourceTree = "<group>";
+		};
+		E277E7B21175FD5B009BCC70 /* appledoc */ = {
+			isa = PBXGroup;
+			children = (
+				E277E7B31175FD5B009BCC70 /* appledoc */,
+				E277E7B41175FD5B009BCC70 /* Readme.markdown */,
+				E277E7B51175FD5B009BCC70 /* Templates */,
+			);
+			path = appledoc;
+			sourceTree = "<group>";
+		};
+		E277E7B51175FD5B009BCC70 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				E277E7B61175FD5B009BCC70 /* object.xslt */,
+				E277E7B71175FD5B009BCC70 /* screen.css */,
+			);
+			path = Templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DOXYGEN_PATH=/Applications/Doxygen.app/Contents/Resources/doxygen\n\n$DOXYGEN_PATH Doxyfile\nmake -C docs/html install\n\nosascript -e \"tell application \\\"Xcode\\\" to load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/net.ᐱ.BayesianKit.docset\\\"\"\n\nexit 0";
+			shellScript = "DOXYGEN=\"/usr/local/bin/doxygen\"\nAPPLEDOC_PATH=\"$SRCROOT/external/appledoc/\"\n\n\"$APPLEDOC_PATH/appledoc\" -p \"$PROJECT_NAME\" \\\n                          -i \"$SRCROOT\" \\\n                          -o \"$SRCROOT/docs\" \\\n                          -t \"$APPLEDOC_PATH/Templates\" \\\n                          -d \"$DOXYGEN\" \\\n                          -c Doxyfile \\\n                          --clean-temp-files \\\n                          --docset \\\n                          --xhtml\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
