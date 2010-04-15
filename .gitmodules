@@ -1,3 +1,6 @@
 [submodule "external/ParseKit"]
 	path = external/ParseKit
 	url = git://github.com/itod/parsekit.git
+[submodule "external/appledoc"]
+	path = external/appledoc
+	url = git://github.com/tomaz/appledoc.git

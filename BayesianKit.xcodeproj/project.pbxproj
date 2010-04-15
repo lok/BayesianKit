@@ -15,6 +15,7 @@
 			);
 			comments = "Generate and install Xcode documentation for BayesianKit.";
 			dependencies = (
+				E2259A151176998800353F51 /* PBXTargetDependency */,
 			);
 			name = "Install Documentation";
 			productName = Documentation;
@@ -98,6 +99,20 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ParseKit */;
 			remoteInfo = ParseKit;
 		};
+		E2259A121176997E00353F51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2259A081176997E00353F51 /* appledoc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E /* appledoc */;
+			remoteInfo = appledoc;
+		};
+		E2259A141176998800353F51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2259A081176997E00353F51 /* appledoc.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* appledoc */;
+			remoteInfo = appledoc;
+		};
 		E2A323DF115CF01200E4D006 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -118,6 +133,7 @@
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = external/ParseKit/ParseKit.xcodeproj; sourceTree = "<group>"; };
 		E22599AC117681F200353F51 /* bayes.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; name = bayes.1; path = docs/man/man1/bayes.1; sourceTree = "<group>"; };
+		E2259A081176997E00353F51 /* appledoc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = appledoc.xcodeproj; path = external/appledoc/appledoc.xcodeproj; sourceTree = "<group>"; };
 		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
 		E26C1454115E324100CFCCF1 /* BKClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClassifier.h; sourceTree = "<group>"; wrapsLines = 0; };
 		E26C1455115E324100CFCCF1 /* BKClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClassifier.m; sourceTree = "<group>"; };
@@ -175,6 +191,7 @@
 		0867D691FE84028FC02AAC07 /* Bayesian */ = {
 			isa = PBXGroup;
 			children = (
+				E2259A081176997E00353F51 /* appledoc.xcodeproj */,
 				E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */,
 				E26C1452115E324100CFCCF1 /* Framework */,
 				E26C1473115E329F00CFCCF1 /* Bayes CLI Tool */,
@@ -244,6 +261,14 @@
 				E22599E8117696E400353F51 /* DemoApp.app */,
 				E22599EA117696E400353F51 /* DebugApp.app */,
 				E22599EC117696E400353F51 /* JSDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2259A091176997E00353F51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2259A131176997E00353F51 /* appledoc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -376,6 +401,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = E2259A091176997E00353F51 /* Products */;
+					ProjectRef = E2259A081176997E00353F51 /* appledoc.xcodeproj */;
+				},
+				{
 					ProductGroup = E22599D6117696E400353F51 /* Products */;
 					ProjectRef = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 				},
@@ -439,6 +468,13 @@
 			remoteRef = E22599EB117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E2259A131176997E00353F51 /* appledoc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = appledoc;
+			remoteRef = E2259A121176997E00353F51 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -464,7 +500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DOXYGEN=\"/usr/local/bin/doxygen\"\nAPPLEDOC_PATH=\"$SRCROOT/external/appledoc/\"\n\n\"$APPLEDOC_PATH/appledoc\" -p \"$PROJECT_NAME\" \\\n                          -i \"$SRCROOT\" \\\n                          -o \"$SRCROOT/docs\" \\\n                          -t \"$APPLEDOC_PATH/Templates\" \\\n                          -d \"$DOXYGEN\" \\\n                          -c Doxyfile \\\n                          --docset \\\n                          --xhtml\n\nexit 0";
+			shellScript = "DOXYGEN=\"/usr/local/bin/doxygen\"\nAPPLEDOC_PATH=\"$SRCROOT/external/appledoc/\"\nAPPLEDOC=\"$APPLEDOC_PATH/build/$CONFIGURATION/appledoc\"\n\n\"$APPLEDOC\" -p \"$PROJECT_NAME\" \\\n            -i \"$SRCROOT\" \\\n            -o \"$SRCROOT/docs\" \\\n            -t \"$APPLEDOC_PATH/Templates\" \\\n            -d \"$DOXYGEN\" \\\n            -c Doxyfile \\\n            --docset \\\n            --xhtml\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -497,6 +533,11 @@
 			isa = PBXTargetDependency;
 			name = ParseKit;
 			targetProxy = E22599F11176970A00353F51 /* PBXContainerItemProxy */;
+		};
+		E2259A151176998800353F51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = appledoc;
+			targetProxy = E2259A141176998800353F51 /* PBXContainerItemProxy */;
 		};
 		E2A323E0115CF01200E4D006 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
