@@ -117,6 +117,7 @@
 		8DC2EF5B0486A6940098B216 /* BayesianKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BayesianKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = "../todparsekit-read-only/ParseKit.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		E22599AC117681F200353F51 /* bayes.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; name = bayes.1; path = docs/man/man1/bayes.1; sourceTree = "<group>"; };
 		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
 		E26C1454115E324100CFCCF1 /* BKClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClassifier.h; sourceTree = "<group>"; wrapsLines = 0; };
 		E26C1455115E324100CFCCF1 /* BKClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClassifier.m; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 				E277E77B1175F606009BCC70 /* DocSet-Info.plist */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+				E22599AC117681F200353F51 /* bayes.1 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

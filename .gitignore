@@ -1,0 +1,9 @@
+.DS_Store
+profile
+
+build/*
+*.pbxuser
+*.mode1v3
+
+docs/
+!docs/man/man1/bayes.1
