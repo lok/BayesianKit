@@ -23,7 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
-		E224A1F11163A50100AD8CA6 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224A1DE1163A4DC00AD8CA6 /* ParseKit.framework */; };
+		E22599F31176971300353F51 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22599E0117696E400353F51 /* ParseKit.framework */; };
 		E26C13AB115D863500CFCCF1 /* BayesianKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BayesianKit.framework */; };
 		E26C145D115E324100CFCCF1 /* BayesianKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1453115E324100CFCCF1 /* BayesianKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E26C145E115E324100CFCCF1 /* BKClassifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E26C1454115E324100CFCCF1 /* BKClassifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,60 +42,60 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E224A1DD1163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599DF117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* ParseKit.framework */;
 			remoteInfo = ParseKit;
 		};
-		E224A1DF1163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599E1117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D389F1CE0F1965E600558235;
+			remoteGlobalIDString = D389F1CE0F1965E600558235 /* JSParseKit.framework */;
 			remoteInfo = JSParseKit;
 		};
-		E224A1E11163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599E3117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797;
+			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797 /* libparsekit.a */;
 			remoteInfo = ParseKitMobile;
 		};
-		E224A1E31163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599E5117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D3C7D87A0A411FBF005DD154;
+			remoteGlobalIDString = D3C7D87A0A411FBF005DD154 /* Tests.octest */;
 			remoteInfo = Tests;
 		};
-		E224A1E51163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599E7117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D33494100E2963FD00406085;
+			remoteGlobalIDString = D33494100E2963FD00406085 /* DemoApp.app */;
 			remoteInfo = DemoApp;
 		};
-		E224A1E71163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599E9117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D34185040E520D3F0081B0DC;
+			remoteGlobalIDString = D34185040E520D3F0081B0DC /* DebugApp.app */;
 			remoteInfo = DebugApp;
 		};
-		E224A1E91163A4DC00AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599EB117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D389F2030F196A7500558235;
+			remoteGlobalIDString = D389F2030F196A7500558235 /* JSDemoApp.app */;
 			remoteInfo = JSDemoApp;
 		};
-		E224A1ED1163A4E800AD8CA6 /* PBXContainerItemProxy */ = {
+		E22599F11176970A00353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ParseKit */;
 			remoteInfo = ParseKit;
 		};
 		E2A323DF115CF01200E4D006 /* PBXContainerItemProxy */ = {
@@ -116,7 +116,7 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* BayesianKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BayesianKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = "../todparsekit-read-only/ParseKit.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = external/ParseKit/ParseKit.xcodeproj; sourceTree = "<group>"; };
 		E22599AC117681F200353F51 /* bayes.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; name = bayes.1; path = docs/man/man1/bayes.1; sourceTree = "<group>"; };
 		E26C1453115E324100CFCCF1 /* BayesianKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayesianKit.h; sourceTree = "<group>"; };
 		E26C1454115E324100CFCCF1 /* BKClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClassifier.h; sourceTree = "<group>"; wrapsLines = 0; };
@@ -147,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E224A1F11163A50100AD8CA6 /* ParseKit.framework in Frameworks */,
+				E22599F31176971300353F51 /* ParseKit.framework in Frameworks */,
 				E26C14D3115E822100CFCCF1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,16 +234,16 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		E224A1D41163A4DC00AD8CA6 /* Products */ = {
+		E22599D6117696E400353F51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E224A1DE1163A4DC00AD8CA6 /* ParseKit.framework */,
-				E224A1E01163A4DC00AD8CA6 /* JSParseKit.framework */,
-				E224A1E21163A4DC00AD8CA6 /* libparsekit.a */,
-				E224A1E41163A4DC00AD8CA6 /* Tests.octest */,
-				E224A1E61163A4DC00AD8CA6 /* DemoApp.app */,
-				E224A1E81163A4DC00AD8CA6 /* DebugApp.app */,
-				E224A1EA1163A4DC00AD8CA6 /* JSDemoApp.app */,
+				E22599E0117696E400353F51 /* ParseKit.framework */,
+				E22599E2117696E400353F51 /* JSParseKit.framework */,
+				E22599E4117696E400353F51 /* libparsekit.a */,
+				E22599E6117696E400353F51 /* Tests.octest */,
+				E22599E8117696E400353F51 /* DemoApp.app */,
+				E22599EA117696E400353F51 /* DebugApp.app */,
+				E22599EC117696E400353F51 /* JSDemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E224A1EE1163A4E800AD8CA6 /* PBXTargetDependency */,
+				E22599F21176970A00353F51 /* PBXTargetDependency */,
 			);
 			name = BayesianKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -376,7 +376,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E224A1D41163A4DC00AD8CA6 /* Products */;
+					ProductGroup = E22599D6117696E400353F51 /* Products */;
 					ProjectRef = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 				},
 			);
@@ -390,53 +390,53 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E224A1DE1163A4DC00AD8CA6 /* ParseKit.framework */ = {
+		E22599E0117696E400353F51 /* ParseKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ParseKit.framework;
-			remoteRef = E224A1DD1163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599DF117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1E01163A4DC00AD8CA6 /* JSParseKit.framework */ = {
+		E22599E2117696E400353F51 /* JSParseKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = JSParseKit.framework;
-			remoteRef = E224A1DF1163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599E1117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1E21163A4DC00AD8CA6 /* libparsekit.a */ = {
+		E22599E4117696E400353F51 /* libparsekit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libparsekit.a;
-			remoteRef = E224A1E11163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599E3117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1E41163A4DC00AD8CA6 /* Tests.octest */ = {
+		E22599E6117696E400353F51 /* Tests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = Tests.octest;
-			remoteRef = E224A1E31163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599E5117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1E61163A4DC00AD8CA6 /* DemoApp.app */ = {
+		E22599E8117696E400353F51 /* DemoApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = DemoApp.app;
-			remoteRef = E224A1E51163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599E7117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1E81163A4DC00AD8CA6 /* DebugApp.app */ = {
+		E22599EA117696E400353F51 /* DebugApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = DebugApp.app;
-			remoteRef = E224A1E71163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599E9117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E224A1EA1163A4DC00AD8CA6 /* JSDemoApp.app */ = {
+		E22599EC117696E400353F51 /* JSDemoApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = JSDemoApp.app;
-			remoteRef = E224A1E91163A4DC00AD8CA6 /* PBXContainerItemProxy */;
+			remoteRef = E22599EB117696E400353F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -493,10 +493,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E224A1EE1163A4E800AD8CA6 /* PBXTargetDependency */ = {
+		E22599F21176970A00353F51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ParseKit;
-			targetProxy = E224A1ED1163A4E800AD8CA6 /* PBXContainerItemProxy */;
+			targetProxy = E22599F11176970A00353F51 /* PBXContainerItemProxy */;
 		};
 		E2A323E0115CF01200E4D006 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

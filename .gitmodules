@@ -1,0 +1,3 @@
+[submodule "external/ParseKit"]
+	path = external/ParseKit
+	url = git://github.com/itod/parsekit.git
