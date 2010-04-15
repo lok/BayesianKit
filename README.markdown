@@ -16,8 +16,8 @@ Dependencies
 Both of them are included as submodules. After having cloned the repository
 type:
 
-  git submodule init
-  git submodule update
+	git submodule init
+	git submodule update
 
 However appledoc needs [Doxygen](http://www.stack.nl/~dimitri/doxygen) which is
 not provided.
@@ -27,9 +27,9 @@ Xcode Project
 
 The BayesianKit project consists of 3 targets:
 
-**BayesianKit** : The BayesianKit framework.
-**Bayes** : The command line utility.
-**Install Documentation** : The script running appledoc.
+- **BayesianKit** : The BayesianKit framework.
+- **Bayes** : The command line utility.
+- **Install Documentation** : The script running appledoc.
 
 BayesianKit usage
 -----------------
@@ -42,29 +42,29 @@ classifier from a file, you must reset the tokenizer and/or combiner.
 
 ### Creating and Training a new classifier ###
 
-  BKClassifier *classifier = [[BKClassifier alloc] init];
-  [classifier trainWithString:@"one two three four five"
-                 forPoolNamed:@"english"];
-  [classifier trainWithString:@"un deux trois quatre cinq"
-                 forPoolNamed:@"french"];
+	BKClassifier *classifier = [[BKClassifier alloc] init];
+	[classifier trainWithString:@"one two three four five"
+	               forPoolNamed:@"english"];
+	[classifier trainWithString:@"un deux trois quatre cinq"
+	               forPoolNamed:@"french"];
   
 ### Saving and reloading the training data ###
 
-  [classifier writeToFile:@"counting.bks"]
-  // Another day, in a different process
-  BKClassifier *anotherOne;
-  anotherOne = [BKClassifier classifierWithContentsOfFile:@"counting.bks"];
+	[classifier writeToFile:@"counting.bks"]
+	// Another day, in a different process
+	BKClassifier *anotherOne;
+	anotherOne = [BKClassifier classifierWithContentsOfFile:@"counting.bks"];
 
 ### Using the classifier to make a guess ###
 
-  NSDictionary *results = [anotherOne guessWithString:@"three platypuses"];
-  NSLog(@"%@", results);
+	NSDictionary *results = [anotherOne guessWithString:@"three platypuses"];
+	NSLog(@"%@", results);
 
 The output is:
 
-  $ {
-    english = "0.9999";
-  }
+	$ {
+	  english = "0.9999";
+	}
   
 Bayes
 -----
@@ -76,16 +76,16 @@ files. A manpage is also provided with every details.
   
 From the root directory of the project:
 
-  sudo cp build/Release/bayes /usr/local/bin/
-  sudo cp docs/man/man1/bayes.1 /usr/local/share/man/man1/
+	sudo cp build/Release/bayes /usr/local/bin/
+	sudo cp docs/man/man1/bayes.1 /usr/local/share/man/man1/
 
 ### Training with a save file ###
 
-  bayes -f save.bks -s -t english shakespeare.txt -t french moliere.txt
+	bayes -f save.bks -s -t english shakespeare.txt -t french moliere.txt
 
 ### Guessing based on this training ###
-
-  bayes -f save.bks -g mystery.txt
+  
+	bayes -f save.bks -g mystery.txt
 
 
 LICENSE
