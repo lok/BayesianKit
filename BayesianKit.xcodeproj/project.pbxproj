@@ -47,70 +47,70 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* ParseKit.framework */;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = ParseKit;
 		};
 		E22599E1117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D389F1CE0F1965E600558235 /* JSParseKit.framework */;
+			remoteGlobalIDString = D389F1CE0F1965E600558235;
 			remoteInfo = JSParseKit;
 		};
 		E22599E3117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797 /* libparsekit.a */;
+			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797;
 			remoteInfo = ParseKitMobile;
 		};
 		E22599E5117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D3C7D87A0A411FBF005DD154 /* Tests.octest */;
+			remoteGlobalIDString = D3C7D87A0A411FBF005DD154;
 			remoteInfo = Tests;
 		};
 		E22599E7117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D33494100E2963FD00406085 /* DemoApp.app */;
+			remoteGlobalIDString = D33494100E2963FD00406085;
 			remoteInfo = DemoApp;
 		};
 		E22599E9117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D34185040E520D3F0081B0DC /* DebugApp.app */;
+			remoteGlobalIDString = D34185040E520D3F0081B0DC;
 			remoteInfo = DebugApp;
 		};
 		E22599EB117696E400353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D389F2030F196A7500558235 /* JSDemoApp.app */;
+			remoteGlobalIDString = D389F2030F196A7500558235;
 			remoteInfo = JSDemoApp;
 		};
 		E22599F11176970A00353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E224A1D31163A4DC00AD8CA6 /* ParseKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ParseKit */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ParseKit;
 		};
 		E2259A121176997E00353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2259A081176997E00353F51 /* appledoc.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E /* appledoc */;
+			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E;
 			remoteInfo = appledoc;
 		};
 		E2259A141176998800353F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2259A081176997E00353F51 /* appledoc.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* appledoc */;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E;
 			remoteInfo = appledoc;
 		};
 		E2A323DF115CF01200E4D006 /* PBXContainerItemProxy */ = {
@@ -395,7 +395,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BayesianKit" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Bayesian */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -566,6 +570,7 @@
 				CURRENT_PROJECT_VERSION = 0.1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "$(INSTALL_PATH)";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -620,6 +625,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@executable_path/../Frameworks";
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
