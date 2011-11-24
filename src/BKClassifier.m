@@ -277,7 +277,6 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
     NSArray *tokens = [tokenizer tokenizeString:trainString];
     BKDataPool *pool = [self poolNamed:poolName];
     [self trainWithTokens:tokens inPool:pool];
-    dirty = YES;
 }
 
 - (void)trainWithTokens:(NSArray*)tokens inPool:(BKDataPool*)pool
@@ -287,6 +286,7 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
         [pool increaseCountForToken:token];
         [corpus increaseCountForToken:token];
     }
+    dirty = YES;
 }
 
 #pragma mark -
@@ -307,12 +307,12 @@ NSString* const BKCorpusDataPoolName = @"__BKCorpus__";
 - (NSDictionary*)guessWithString:(NSString*)string
 {
     NSArray *tokens = [tokenizer tokenizeString:string];
-    [self updatePoolsProbabilities];
     return [self guessWithTokens:tokens];
 }
 
 - (NSDictionary*)guessWithTokens:(NSArray*)tokens
 {
+    [self updatePoolsProbabilities];
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[pools count]];
     
     for (NSString *poolName in pools) {
